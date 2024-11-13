@@ -130,7 +130,21 @@ class test{
             // creo objeto html sino cargo formulario           
             
             //construyo objeto file y relleno valor para prueba
-            
+            if (valortest.length != 0){
+                var file = new File([new ArrayBuffer(valortest[2])], valortest[0],{type:valortest[1], webkitRelativePath:"C:\\fakepath\\"+valortest[0]});
+                
+                // Create a data transfer object. Similar to what you get from a `drop` event as `event.dataTransfer`
+                const dataTransfer = new DataTransfer();
+
+                // Add your file to the file list of the object
+                dataTransfer.items.add(file);
+
+                // Save the file list to a new variable
+                const fileList = dataTransfer.files;
+
+                // Set your input `files` to the file list
+                document.getElementById(campotest).files = fileList;
+            }
 
             //llamo a funcion
             if (acciontest == 'SEARCH'){
@@ -294,7 +308,7 @@ class test{
                 (typeof(element[3])=='number')  &&
                 (typeof(element[4])=='string')  &&
                 (typeof(element[5])=='string')  &&
-                (typeof(element[6])=='string')  &&
+                (typeof(element[6])== 'object')  &&
                 ((typeof(element[7])=='string') || (typeof(element[7])=='boolean'))
                 ){
                     salidalinea += '<td>CORRECTA</td>';

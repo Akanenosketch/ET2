@@ -68,7 +68,7 @@ class validacionesatomicas{
 						break;
 					case 'file':
 						var valorelemento = elemento.files[0].name;
-						if (valorelemento.length<minsize){
+						if (valorelemento.length>maxsize){
 							return false;
 						}
 						else{
@@ -94,19 +94,24 @@ class validacionesatomicas{
 		return expresionregular.test(valor);
 	}
 
-	max_size_file(objfile, minsize){
-		alert(objfile.size);
+	max_size_file(objfile, maxsize){
+		if (objfile.size>maxsize){
+			return false;
+		}
 		return true;
 	}
 
 	type_file(objfile, array_tipos){
-		alert(objfile.type);
+		if (!(array_tipos.includes(objfile.type))){
+			return false;
+		}
 		return true;
 	}
 
 	format_name_file(objfile, exprreg){
-		alert(objfile.name);
-		return true;
+		let expresionregular = new RegExp(exprreg);
+		let valor = objfile.name;
+		return expresionregular.test(valor);
 	}
 
 }

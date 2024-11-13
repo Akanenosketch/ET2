@@ -4,8 +4,8 @@ let textos_ES = {
 	'text_titulo_app': 'Interfaz ET2 IU',
 	'text_titulo_menu': 'Opciones de Menú',
 	'text_titulo_pie': 'Pie de página',
-	'text_datos_personales': 'Datos Personales',
-	'text_funcionalidad': 'Funcionalidades',
+	'text_project': 'Proyecto',
+	'text_analysis_prep': 'Preparación de análisis',
 	'text_titulo_page_persona' : 'Gestión de Datos Personales',
 	'text_contenido_titulo_form_persona_ADD': 'Formulario Alta Datos Personales',
 	'text_contenido_titulo_form_persona_EDIT': 'Formulario Modificación Datos Personales',
@@ -21,6 +21,7 @@ let textos_ES = {
 	'foto_persona': 'Foto',
 
 	// labels
+	'label_id_analysis_preparation': 'ID de analysis',
 	'label_dni': 'Identificación',
 	'label_nombre_persona': 'Nombre',
 	'label_apellidos_persona': 'Apellidos',
@@ -66,7 +67,7 @@ let textos_ES = {
 	'foto_persona_format_KO':'',
 
 	//errores acciones
-	
+	'RECORDSET_VACIO' : 'No hay coincidencia para la búsqueda',
 	'dni_es_nulo_KO':'El dni no puede ser vacio',
 
 	'admin_no_se_puede_modificar_KO':'El admin no se puede modificar',

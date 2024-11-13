@@ -4,13 +4,14 @@ let textos_EN = {
 	'text_titulo_app':'IU ET2 Interface',
 	'text_titulo_menu': 'Menu Options',
 	'text_titulo_pie': 'Page Footer',
-	'text_datos_personales': 'Personal Data',
-	'text_funcionalidad': 'Functionalities',
+	'text_project': 'Project',
+	'text_analysis_prep': 'Analisys Preparation',
 	'text_titulo_page_persona' : 'Personal Data Management',
 	'text_contenido_titulo_form_persona_ADD': 'Personal Data Add Form',
 	'text_contenido_titulo_form_persona_EDIT': 'Personal Data Edit Form',
 
 	// atributos
+	'label_id_analysis_preparation': 'Analysis ID',
 	'dni': 'Identification',
 	'nombre_persona': 'Name',
 	'apellidos_persona': 'Surname',
