@@ -15,22 +15,30 @@ class analysis_preparation extends EntidadAbstracta{
 
 		let formulario = `
 
-			<label id="label_id_analysis_preparation" class="label_id_analysis_preparation">id_preparación</label>
-			<input type="text" id="id_funcionalidad" name="id_funcionalidad" />
-			<spam id="div_error_id_funcionalidad"></span>
+			<label id="label_id_analysis_preparation" class="label_id_analysis_preparation">ID de análisis</label>
+			<input type="text" id="id_analysis_preparation" name="id_analysis_preparation" />
+			<spam id="div_error_id_analysis_preparation"></span>
 			<br>
 
-			<label id="label_nombre_funcionalidad">nombre_funcionalidad</label>
-			<input type="text" id="nombre_funcionalidad" name="nombre_funcionalidad" />
-			<spam id="div_error_nombre_funcionalidad"></span>
+			<label id="label_name_analysis_preparation" class="label_name_analysis_preparation">Nombre de análisis</label>
+			<input type="text" id="name_analysis_preparation" name="name_analysis_preparation" />
+			<spam id="div_error_name_analysis_preparation"></span>
 			<br>
 
-			<label id="label_descrip_funcionalidad">descrip_funcionalidad</label>
-			<input type="text" id="descrip_funcionalidad" name="descrip_funcionalidad" />
-			<spam id="div_error_descrip_funcionalidad"></span>
+			<label id="label_description_analysis_preparation" class="label_description_analysis_preparation">Descripción análisis</label>
+			<input type="text" id="description_analysis_preparation" name="description_analysis_preparation" />
+			<spam id="div_error_description_analysis_preparation"></span>
 			<br>
 
+			<label id="label_bib_analysis_preparation" class="label_bib_analysis_preparation">Bib del análisis</label>
+			<input type="text" id="bib_analysis_preparation" name="bib_analysis_preparation" />
+			<spam id="div_error_bib_analysis_preparation"></span>
+			<br>
 
+			<label id="label_file_analysis_preparation" class="label_file_analysis_preparation">Archivo del análisis</label>
+			<input type="text" id="file_analysis_preparation" name="file_analysis_preparation" />
+			<spam id="div_error_file_analysis_preparation"></span>
+			<br>
 		`;
 
 		document.getElementById("IU_form").innerHTML = formulario;

@@ -6,7 +6,7 @@ let textos_ES = {
 	'text_titulo_pie': 'Pie de página',
 	'text_project': 'Proyecto',
 	'text_analysis_prep': 'Preparación de análisis',
-	'text_titulo_page_persona' : 'Gestión de Datos Personales',
+	'text_titulo_page_persona': 'Gestión de Datos Personales',
 	'text_contenido_titulo_form_persona_ADD': 'Formulario Alta Datos Personales',
 	'text_contenido_titulo_form_persona_EDIT': 'Formulario Modificación Datos Personales',
 
@@ -21,7 +21,11 @@ let textos_ES = {
 	'foto_persona': 'Foto',
 
 	// labels
-	'label_id_analysis_preparation': 'ID de analysis',
+	"label_id_analysis_preparation": 'ID de análisis',
+	"label_name_analysis_preparation": 'Nombre de análisis',
+	"label_description_analysis_preparation": 'Descripción de análisis',
+	"label_bib_analysis_preparation": '',
+	"label_file_analysis_preparation"
 	'label_dni': 'Identificación',
 	'label_nombre_persona': 'Nombre',
 	'label_apellidos_persona': 'Apellidos',
@@ -35,9 +39,9 @@ let textos_ES = {
 	// errores validaciones formulario
 	// ADD/EDIT
 	// nombre_persona
-	'nombre_persona_min_size_KO':'Nombre demasiado corto. Debe tener mas de 4 caracteres alfabéticos',
-	'nombre_persona_max_size_KO':'Nombre demasiado largo. Debe tener menos de 20 caracteres alfabéticos',
-	'nombre_persona_format_KO':'Nombre no correcto. Solo se permiten alfabéticos',
+	'nombre_persona_min_size_KO': 'Nombre demasiado corto. Debe tener mas de 4 caracteres alfabéticos',
+	'nombre_persona_max_size_KO': 'Nombre demasiado largo. Debe tener menos de 20 caracteres alfabéticos',
+	'nombre_persona_format_KO': 'Nombre no correcto. Solo se permiten alfabéticos',
 
 	// apellidos persona
 	'apellidos_persona_min_size_KO': 'Apellidos demasiado corto. Debe tener mas de 4 caracteres alfabéticos o espacios',
@@ -50,26 +54,26 @@ let textos_ES = {
 
 	// email persona
 	'email_persona_min_size_KO': '',
-	'email_persona_max_size_KO':'',
-	'email_persona_format_KO':'',
+	'email_persona_max_size_KO': '',
+	'email_persona_format_KO': '',
 
 	// nuevo foto persona	
-	'nuevo_foto_persona_empty_KO':'El fichero no existe. Debe subir una foto',
-	'nuevo_foto_persona_max_size_file_KO':'',
-	'nuevo_foto_persona_type_file_KO':'',
-	'nuevo_foto_persona_format_name_file_KO':'',
-	'nuevo_foto_persona_min_size_KO':'',
-	'nuevo_foto_persona_max_size_KO':'',
+	'nuevo_foto_persona_empty_KO': 'El fichero no existe. Debe subir una foto',
+	'nuevo_foto_persona_max_size_file_KO': '',
+	'nuevo_foto_persona_type_file_KO': '',
+	'nuevo_foto_persona_format_name_file_KO': '',
+	'nuevo_foto_persona_min_size_KO': '',
+	'nuevo_foto_persona_max_size_KO': '',
 
 	//SEARCH
 	// foto persona
-	'foto_persona_max_size_KO':'',
-	'foto_persona_format_KO':'',
+	'foto_persona_max_size_KO': '',
+	'foto_persona_format_KO': '',
 
 	//errores acciones
-	'RECORDSET_VACIO' : 'No hay coincidencia para la búsqueda',
-	'dni_es_nulo_KO':'El dni no puede ser vacio',
+	'RECORDSET_VACIO': 'No hay coincidencia para la búsqueda',
+	'dni_es_nulo_KO': 'El dni no puede ser vacio',
 
-	'admin_no_se_puede_modificar_KO':'El admin no se puede modificar',
+	'admin_no_se_puede_modificar_KO': 'El admin no se puede modificar',
 
 }
