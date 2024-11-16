@@ -1,14 +1,15 @@
-class project extends EntidadAbstracta{
+class analysis_preparation extends EntidadAbstracta {
 
-	constructor(estest){
+
+	constructor() {
 
 		super();
-		
-		this.entidad = 'persona';
-		this.columnasamostrar = Array('dni','fechaNacimiento_persona','foto_persona','telefono_persona');
-		this.datosespecialestabla = Array('fechaNacimiento_persona','foto_persona');
-		
-		this.inicializar(estest);
+
+		this.entidad = 'analysis_preparation';
+		this.columnasamostrar = Array('id_analysis_preparation', 'name_analysis_preparation', 'description_analysis_preparation', 'bib_analysis_preparation', 'file_analysis_preparation');
+		this.datosespecialestabla = Array('file_analysis_preparation');
+
+		this.inicializar();
 
 	}
 
@@ -16,46 +17,34 @@ class project extends EntidadAbstracta{
 	carga e inicialización del formulario de la clase
 	*/
 
-	cargar_formulario_html(){
+	cargar_formulario_html() {
 
 		// atributo creado para distinguir en comprobar_atributo() entre venir de ADD o EDIT
 		this.accion = '';
-		
+
 		let formulario = `
 
-			<label id="label_id_analysis_preparation" class="label_id_analysis_preparation">ID de análisis</label>
-			<input type="text" id="id_analysis_preparation" name="id_analysis_preparation" />
-			<spam id="div_error_id_analysis_preparation"></span>
-			<br>
-
-			<label id="label_name_analysis_preparation" class="label_name_analysis_preparation">Nombre de análisis</label>
+			<label id="label_name_analysis_preparation" class="label_name_analysis_preparation"></label>
 			<input type="text" id="name_analysis_preparation" name="name_analysis_preparation" />
 			<spam id="div_error_name_analysis_preparation"></span>
 			<br>
 
-			<label id="label_description_analysis_preparation" class="label_description_analysis_preparation">Descripción análisis</label>
+			<label id="label_description_analysis_preparation" class="label_description_analysis_preparation"></label>
 			<input type="text" id="description_analysis_preparation" name="description_analysis_preparation" />
 			<spam id="div_error_description_analysis_preparation"></span>
 			<br>
 
-			<label id="label_bib_analysis_preparation" class="label_bib_analysis_preparation">Bib del análisis</label>
+			<label id="label_bib_analysis_preparation" class="label_bib_analysis_preparation"></label>
 			<input type="text" id="bib_analysis_preparation" name="bib_analysis_preparation" />
 			<spam id="div_error_bib_analysis_preparation"></span>
 			<br>
 
-			<label id="label_file_analysis_preparation" class="label_file_analysis_preparation">Archivo del análisis</label>
-			<input type="text" id="file_analysis_preparation" name="file_analysis_preparation" />
-			<spam id="div_error_file_analysis_preparation"></span>
-			<br>
-
-			// modificar
-
-			<label id="label_foto_persona" class="label_foto_persona">Foto Persona</label>
-			<input type='text' id='foto_persona' name='foto_persona'></input>
-			<span id="div_error_foto_persona"><a id="error_foto_persona"></a></span>
-			<a id="link_foto_persona" href="http://193.147.87.202/ET2/filesuploaded/files_foto_persona/"><img src="./iconos/FILE.png" /></a>
-			<label id="label_nuevo_foto_persona" class="label_nuevo_foto_persona">Nueva Foto Persona</label>
-			<input type='file' id='nuevo_foto_persona' name='nuevo_foto_persona'></input>
+			<label id="label_file_analysis_preparation" class="label_file_analysis_preparation"></label>
+			<input type='text' id='file_analysis_preparation' name='file_analysis_preparation'></input>
+			<span id="div_error_file_analysis_preparation"><a id="error_file_analysis_preparation"></a></span>
+			<a id="link_file_analysis_preparation" href="http://193.147.87.202/ET2/filesuploaded/file_analysis_preparation/"><img src="./iconos/FILE.png" /></a>
+			<label id="label_new_file_analysis_preparation" class="label_new_analysis_preparation"></label>
+			<input type='file' id='new_file_analysis_preparation' name='new_file_analysis_preparation'></input>
 			<span id="div_error_nuevo_foto_persona"><a id="error_nuevo_foto_persona"></a></span>
 			<br>
 
@@ -70,102 +59,98 @@ class project extends EntidadAbstracta{
 	creacion de formularios
 	*/
 
-	createForm_ADD(){
+	createForm_ADD() {
 
-		if (eval(this.cargar_formulario_html)){
+		if (eval(this.cargar_formulario_html)) {
 			this.cargar_formulario_html();
 			// atributo creado para distinguir en comprobar_atributo() entre venir de ADD o EDIT
 			this.accion = 'ADD';
 		}
 
 		// poner titulo al formulario
-		document.getElementById('class_contenido_titulo_form').className = 'text_contenido_titulo_form_'+this.entidad+'_ADD';
+		document.getElementById('class_contenido_titulo_form').className = 'text_contenido_titulo_form_' + this.entidad + '_ADD';
 
 
 		//editar
-		document.getElementById('label_foto_persona').remove();
-		document.getElementById('foto_persona').remove();
-		document.getElementById('link_foto_persona').remove();
+		document.getElementById('label_file_analysis_preparation').remove();
+		document.getElementById('file_analysis_preparation').remove();
+		document.getElementById('link_file_analysis_preparation').remove();
 
 		this.colocarvalidaciones('ADD');
-		
+
 		this.colocarboton('ADD');
 
-		document.getElementById("IU_form").setAttribute('onsubmit',"return validar.comprobar_submit();");
-		document.getElementById("IU_form").setAttribute('action',"javascript:validar.ADD();");
+		document.getElementById("IU_form").setAttribute('onsubmit', "return validar.comprobar_submit();");
+		document.getElementById("IU_form").setAttribute('action', "javascript:validar.ADD();");
 
 		document.getElementById("div_IU_form").style.display = 'block';
 		setLang();
 
 	}
 
-	createForm_SEARCH(){
+	createForm_SEARCH() {
 
-		if (eval(this.cargar_formulario_html)){
+		if (eval(this.cargar_formulario_html)) {
 			this.cargar_formulario_html();
 		}
 
-		document.getElementById('label_nuevo_foto_persona').remove();
-		document.getElementById('nuevo_foto_persona').remove();
-		document.getElementById('link_foto_persona').remove();
+		document.getElementById('label_file_analysis_preparation').remove();
+		document.getElementById('file_analysis_preparation').remove();
+		document.getElementById('link_file_analysis_preparation').remove();
 
 		this.colocarvalidaciones('SEARCH');
-		
+
 		this.colocarboton('SEARCH');
 
-		document.getElementById("IU_form").setAttribute('onsubmit',"return validar.comprobar_submit_SEARCH();");
-		document.getElementById("IU_form").setAttribute('action',"javascript:validar.SEARCH();");
+		document.getElementById("IU_form").setAttribute('onsubmit', "return validar.comprobar_submit_SEARCH();");
+		document.getElementById("IU_form").setAttribute('action', "javascript:validar.SEARCH();");
 
 		document.getElementById("div_IU_form").style.display = 'block';
 		setLang();
 
 	}
 
-	createForm_EDIT(parametros){
+	createForm_EDIT(parametros) {
 
-		if (eval(this.cargar_formulario_html)){
+		if (eval(this.cargar_formulario_html)) {
 			this.cargar_formulario_html();
 			// atributo creado para distinguir en comprobar_atributo() entre venir de ADD o EDIT
 			this.accion = 'EDIT';
 		}
 
 		// poner titulo al formulario
-		document.getElementById('class_contenido_titulo_form').className = 'text_contenido_titulo_form_'+this.entidad+'_EDIT';
+		document.getElementById('class_contenido_titulo_form').className = 'text_contenido_titulo_form_' + this.entidad + '_EDIT';
 
 		// relleno los valores de los atributos
 		this.rellenarvaloresform(parametros);
 
 		// desactivo los campos necesarios
-		document.getElementById('foto_persona').setAttribute('readonly',true);
-		document.getElementById('dni').setAttribute('readonly',true);
+		document.getElementById('file_analysis_preparation').setAttribute('readonly', true);
+		document.getElementById('id_analysis_preparation').setAttribute('readonly', true);
 
 		/*
 		cambio presentacion fecha a formato dd/mm/aaaa directamente en codigo o reutilizando el metodo de cambio de presentacion en tabla
 		*/
 		/*
 		let fech = parametros.fechaNacimiento_persona.split('-');
-    	let fechaformateada = fech[2] + '/' + fech[1] + '/' + fech[0];
+		let fechaformateada = fech[2] + '/' + fech[1] + '/' + fech[0];
 		document.getElementById('fechaNacimiento_persona').value = fechaformateada;
 		*/
 
-		document.getElementById('fechaNacimiento_persona').value = this.cambiardatosespecialestabla('fechaNacimiento_persona', parametros.fechaNacimiento_persona);
-
 		// añado el nombre de fichero a la ruta de href que tengo en el hiperenlace del fichero
-		document.getElementById('link_foto_persona').href += parametros.foto_persona;
-
-		
+		document.getElementById('link_file_analysis_preparation').href += parametros.file_analysis_preparation;
 
 		// coloco las validaciones
 		this.colocarvalidaciones('EDIT');
 
-		document.getElementById('foto_persona').removeAttribute('onblur');
-		
+		document.getElementById('file_analysis_preparation').removeAttribute('onblur');
+
 		// coloco el boton
 		this.colocarboton('EDIT');
 
 		// pongo valores a los onsubmit y action
-		document.getElementById("IU_form").setAttribute('onsubmit',"return validar.comprobar_submit();");
-		document.getElementById("IU_form").setAttribute('action',"javascript:validar.EDIT();");
+		document.getElementById("IU_form").setAttribute('onsubmit', "return validar.comprobar_submit();");
+		document.getElementById("IU_form").setAttribute('action', "javascript:validar.EDIT();");
 
 		// pongo visible el formulario
 		document.getElementById("div_IU_form").style.display = 'block';
@@ -173,15 +158,15 @@ class project extends EntidadAbstracta{
 
 	}
 
-	createForm_DELETE(parametros){
+	createForm_DELETE(parametros) {
 
-		if (eval(this.cargar_formulario_html)){
+		if (eval(this.cargar_formulario_html)) {
 			this.cargar_formulario_html();
 		}
 
-		document.getElementById('label_nuevo_foto_persona').remove();
-		document.getElementById('nuevo_foto_persona').remove();
-		
+		document.getElementById('label_new_file_analysis_preparation').remove();
+		document.getElementById('new_file_analysis_preparation').remove();
+
 		this.rellenarvaloresform(parametros);
 
 		/*
@@ -189,13 +174,11 @@ class project extends EntidadAbstracta{
 		*/
 		/*
 		let fech = parametros.fechaNacimiento_persona.split('-');
-    	let fechaformateada = fech[2] + '/' + fech[1] + '/' + fech[0];
+		let fechaformateada = fech[2] + '/' + fech[1] + '/' + fech[0];
 		document.getElementById('fechaNacimiento_persona').value = fechaformateada;
 		*/
 
-		document.getElementById('fechaNacimiento_persona').value = this.cambiardatosespecialestabla('fechaNacimiento_persona', parametros.fechaNacimiento_persona);
-
-		document.getElementById('link_foto_persona').href += parametros.foto_persona;
+		document.getElementById('link_file_analysis_preparation').href += parametros.file_analysis_preparation;
 
 		// pongo no activos todos los campos
 		this.ponernoactivoform();
@@ -203,22 +186,22 @@ class project extends EntidadAbstracta{
 		this.colocarboton('DELETE');
 
 
-		document.getElementById("IU_form").setAttribute('onsubmit',"return true;");
-		document.getElementById("IU_form").setAttribute('action',"javascript:validar.DELETE();");
+		document.getElementById("IU_form").setAttribute('onsubmit', "return true;");
+		document.getElementById("IU_form").setAttribute('action', "javascript:validar.DELETE();");
 		document.getElementById("div_IU_form").style.display = 'block';
 		setLang();
 
 	}
 
-	createForm_SHOWCURRENT(parametros){
+	createForm_SHOWCURRENT(parametros) {
 
-		if (eval(this.cargar_formulario_html)){
+		if (eval(this.cargar_formulario_html)) {
 			this.cargar_formulario_html();
 		}
 
-		document.getElementById('label_nuevo_foto_persona').remove();
-		document.getElementById('nuevo_foto_persona').remove();
-		
+		document.getElementById('label_new_file_analysis_preparation').remove();
+		document.getElementById('new_analysis_preparation').remove();
+
 		this.rellenarvaloresform(parametros);
 
 		/*
@@ -226,18 +209,16 @@ class project extends EntidadAbstracta{
 		*/
 		/*
 		let fech = parametros.fechaNacimiento_persona.split('-');
-    	let fechaformateada = fech[2] + '/' + fech[1] + '/' + fech[0];
+		let fechaformateada = fech[2] + '/' + fech[1] + '/' + fech[0];
 		document.getElementById('fechaNacimiento_persona').value = fechaformateada;
 		*/
 
-		document.getElementById('fechaNacimiento_persona').value = this.cambiardatosespecialestabla('fechaNacimiento_persona', parametros.fechaNacimiento_persona);
-
-		document.getElementById('link_foto_persona').href += parametros.foto_persona;
+		document.getElementById('link_file_analysis_preparation').href += parametros.foto_persona;
 
 		this.ponernoactivoform();
 
-		document.getElementById("IU_form").setAttribute('onsubmit',"return true;");
-		document.getElementById("IU_form").setAttribute('action',"");
+		document.getElementById("IU_form").setAttribute('onsubmit', "return true;");
+		document.getElementById("IU_form").setAttribute('action', "");
 
 		document.getElementById("div_IU_form").style.display = 'block';
 		setLang();
@@ -246,174 +227,162 @@ class project extends EntidadAbstracta{
 
 	/*
 	comprobacion campos ADD, EDIT
+
+	No se añade comprobaciones para id_analysis_preparation debido a que este valor es autoincremental
 	*/
 
-	comprobar_nombre_persona(){
+	comprobar_name_analysis_preparation() {
 
-		if (!(this.validaciones.min_size('nombre_persona',4))){
-			this.mostrar_error_campo('nombre_persona','nombre_persona_min_size_KO');
-			return 'nombre_persona_min_size_KO';
+		if (!(this.validaciones.min_size('name_analysis_preparation', 8))) {
+			this.mostrar_error_campo('name_analysis_preparation', 'name_analysis_preparation_min_size_KO');
+			return 'name_analysis_prepration_min_size_KO';
 		}
-		if (!(this.validaciones.max_size('nombre_persona',20))){
-			this.mostrar_error_campo('nombre_persona','nombre_persona_max_size_KO');
-			return 'nombre_persona_max_size_KO'
+		if (!(this.validaciones.max_size('name_analysis_preparation', 100))) {
+			this.mostrar_error_campo('name_analysis_preparation', 'name_analysis_preparation_max_size_KO');
+			return 'name_analysis_preparation_max_size_KO'
 		}
-		if (!(this.validaciones.format('nombre_persona', '[A-Za-z]+$'))){
-			this.mostrar_error_campo('nombre_persona','nombre_persona_format_KO');
-			return 'nombre_persona_format_KO'
+		if (!(this.validaciones.format('name_analysis_preparation', '^[a-zA-z]+([\s][a-zA-Z]+)*$'))) {
+			this.mostrar_error_campo('name_analysis_preparation', 'name_analysis_preparation_format_KO');
+			return 'name_analysis_preparation_format_KO'
 		}
-		this.mostrar_exito_campo('nombre_persona');
+		this.mostrar_exito_campo('name_analysis_preparation');
 		return true;
 
 	}
 
-	comprobar_apellidos_persona(){
+	comprobar_description_analysis_preparation() {
 
-		if (!(this.validaciones.min_size('apellidos_persona',4))){
-			this.mostrar_error_campo('apellidos_persona','apellidos_persona_min_size_KO');
+		if (!(this.validaciones.min_size('description_analysis_preparation', 80))) {
+			this.mostrar_error_campo('description_analysis_preparation', 'description_analysis_preparation_min_size_KO');
 			//return false;
-			return 'apellidos_persona_min_size_KO';
+			return 'description_analysis_preparation_min_size_KO';
 		}
-		if (!(this.validaciones.max_size('apellidos_persona',8))){
-			this.mostrar_error_campo('apellidos_persona','apellidos_persona_max_size_KO');
+		if (!(this.validaciones.max_size('description_analysis_preparation', 5000))) {
+			this.mostrar_error_campo('description_analysis_preparation', 'description_analysis_preparation_max_size_KO');
 			//return false;
-			return 'apellidos_persona_max_size_KO'
+			return 'description_analysis_preparation_max_size_KO';
 		}
-		if (!(this.validaciones.format('apellidos_persona', '[A-Za-z]+'))){
-			this.mostrar_error_campo('apellidos_persona','apellidos_persona_format_KO');
+		if (!(this.validaciones.format('description_analysis_preparation', '^[a-zA-z]+([a-zA-Z]+)*$'))) {
+			this.mostrar_error_campo('description_analysis_preparation', 'description_analysis_preparation_format_KO');
 			//return false;
-			return 'apellidos_persona_format_KO'
+			return 'description_analysis_preparation_format_KO'
 		}
-		this.mostrar_exito_campo('apellidos_persona');
+		this.mostrar_exito_campo('description_analysis_preparation');
 		return true;
 	}
 
-	comprobar_fechaNacimiento_persona(){
+	comprobar_bib_analysis_preparation() {
 
-		if (!(this.validaciones.format('fechaNacimiento_persona','[0-9]{2,}[/][0-9]{2,}[/][0-9]{4,}'))){
-			this.mostrar_error_campo('fechaNacimiento_persona','fechaNacimiento_persona_format_KO');
-			return 'fechaNacimiento_persona_format_KO';
-		}
-		if (!(this.validacionesespeciales('fechaNacimiento_persona','fechavalida'))){
-			this.mostrar_error_campo('fechaNacimiento_persona','fechaNacimiento_persona_valid_KO');
-			return 'fechaNacimiento_persona_valid_KO';
-		}
-		this.mostrar_exito_campo('fechaNacimiento_persona');
-		return true;
-
-	}
-
-	comprobar_email_persona(){
-
-		if (!(this.validaciones.min_size('email_persona',5))){
-			this.mostrar_error_campo('email_persona','email_persona_min_size_KO');
+		if (!(this.validaciones.min_size('bib_analysis_prepraration', 5))) {
+			this.mostrar_error_campo('bib_analysis_prepraration', 'bib_analysis_preparation_min_size_KO');
 			//return false;
-			return 'email_persona_min_size_KO';
+			return 'bib_analysis_preparation_min_size_KO';
 		}
-		if (!(this.validaciones.max_size('email_persona',20))){
-			this.mostrar_error_campo('email_persona','email_persona_max_size_KO');
+		if (!(this.validaciones.max_size('bib_analysis_prepraration', 20))) {
+			this.mostrar_error_campo('bib_analysis_prepraration', 'bib_analysis_preparation_max_size_KO');
 			//return false;
-			return 'email_persona_max_size_KO';
+			return 'bib_analysis_preparation_max_size_KO';
 		}
-		if (!(this.validaciones.format('email_persona','^[^@]+@[^@]+\.[A-Za-z]{2,}$'))){
-			this.mostrar_error_campo('email_persona','email_persona_format_KO');
+		if (!(this.validaciones.format('bib_analysis_prepraration', '^[^@]+@[^@]+\.[A-Za-z]{2,}$'))) {
+			this.mostrar_error_campo('bib_analysis_prepraration', 'bib_analysis_preparation_format_KO');
 			//return false;
-			return 'email_persona_format_KO';
+			return 'bib_analysis_preparation_format_KO';
 		}
-		this.mostrar_exito_campo('email_persona');
+		this.mostrar_exito_campo('bib_analysis_prepraration');
 		return true;
 	}
 
-	comprobar_nuevo_foto_persona(){
+	comprobar_new_file_analysis_preparation() {
 
-		if (document.getElementById('nuevo_foto_persona').files.length == 0){
-			if (this.accion == 'EDIT'){
+		if (document.getElementById('new_file_analysis_preparation').files.length == 0) {
+			if (this.accion == 'EDIT') {
 				return true;
 			}
-			else{
-				if (this.accion = "ADD"){
-					this.mostrar_error_campo('nuevo_foto_persona','nuevo_foto_persona_empty_KO');
-					return 'nuevo_foto_persona_empty_KO';
+			else {
+				if (this.accion = "ADD") {
+					this.mostrar_error_campo('new_file_analysis_preparation', 'new_file_analysis_preparation_empty_KO');
+					return 'new_file_analysis_preparation_empty_KO';
 				}
 			}
 		}
-	
-		// si tuviera un campo con multiples ficheros tendria que hacer un bucle para comprobar cada file[i]
-		let mifichero = document.getElementById('nuevo_foto_persona').files[0];
-		
 
-		if (!(this.validaciones.max_size_file(mifichero,20000))){
-			this.mostrar_error_campo('nuevo_foto_persona','nuevo_foto_persona_max_size_file_KO');
+		// si tuviera un campo con multiples ficheros tendria que hacer un bucle para comprobar cada file[i]
+		let mifichero = document.getElementById('new_file_analysis_preparation').files[0];
+
+
+		if (!(this.validaciones.max_size_file(mifichero, 20000))) {
+			this.mostrar_error_campo('new_file_analysis_preparation', 'new_file_analysis_preparation_max_size_file_KO');
 			return 'nuevo_foto_persona_max_size_file_KO';
 		}
-		if (!(this.validaciones.type_file(mifichero,Array("application/pdf", "application/msword","image/jpeg")))){
-			this.mostrar_error_campo('nuevo_foto_persona','nuevo_foto_persona_type_file_KO');
-			return 'nuevo_foto_persona_type_file_KO';
+		if (!(this.validaciones.type_file(mifichero, Array("application/pdf", "application/msword")))) {
+			this.mostrar_error_campo('new_file_analysis_preparation', 'new_file_analysis_preparation_type_file_KO');
+			return 'new_file_analysis_preparation_type_file_KO';
 		}
-		if (!(this.validaciones.format_name_file(mifichero,'[A-Za-z]+$'))){
-			this.mostrar_error_campo('nuevo_foto_persona','nuevo_foto_persona_format_name_file_KO');
-			return 'nuevo_foto_persona_format_name_file_KO';
+		if (!(this.validaciones.format_name_file(mifichero, '^[a-zA-z]+([a-zA-Z]+)*$'))) {
+			this.mostrar_error_campo('new_file_analysis_preparation', 'new_file_analysis_preparation_format_name_file_KO');
+			return 'new_file_analysis_preparation_format_name_file_KO';
 		}
-		if (!this.validaciones.min_size('nuevo_foto_persona',7)){
-			this.mostrar_error_campo('nuevo_foto_persona','nuevo_foto_persona_min_size_name_KO');
-			return 'nuevo_foto_persona_min_size_name_KO';
+		if (!this.validaciones.min_size('new_file_analysis_preparation', 7)) {
+			this.mostrar_error_campo('new_file_analysis_preparation', 'new_file_analysis_preparation_min_size_name_KO');
+			return 'new_file_analysis_preparation_min_size_name_KO';
 		}
-		if (!this.validaciones.max_size('nuevo_foto_persona',100)){
-			this.mostrar_error_campo('nuevo_foto_persona','nuevo_foto_persona_max_size_name_KO');
-			return 'nuevo_foto_persona_max_size_name_KO';
+		if (!this.validaciones.max_size('new_file_analysis_preparation', 100)) {
+			this.mostrar_error_campo('new_file_analysis_preparation', 'new_file_analysis_preparation_max_size_name_KO');
+			return 'new_file_analysis_preparation_max_size_name_KO';
 		}
 
-		this.mostrar_exito_campo('nuevo_foto_persona');
+		this.mostrar_exito_campo('new_file_analysis_preparation');
 		return true;
 
 	}
 
-	comprobar_submit(){
-		
-		let result = 	(
-					(this.comprobar_nombre_persona()) &
-					(this.comprobar_apellidos_persona()) &
-					(this.comprobar_email_persona()) &
-					(this.comprobar_fechaNacimiento_persona()) &
-					(this.comprobar_nuevo_foto_persona())
-				);
-		
+	comprobar_submit() {
+
+		let result = (
+			(this.comprobar_name_analysis_preparation()) &
+			(this.comprobar_description_analysis_preparation()) &
+			(this.comprobar_bib_analysis_preparation()) &
+			(this.comprobar_new_file_analysis_preparation())
+		);
+
 		result = Boolean(result);
-		
+
 		return result;
 
 	}
 
 	/*
 	comprobacion campos SEARCH
+
+	Para las operaciones sí que se debe de comprobar id_analysis_preparation
 	*/
 
-	comprobar_nombre_persona_SEARCH(){
+	comprobar_id_analysis_preparation_SEARCH() {
 
-		if (!(this.validaciones.max_size('nombre_persona',8))){
-			this.mostrar_error_campo('nombre_persona','nombre_persona_max_size_KO');
+		if (!(this.validaciones.max_size('id_analysis_preparation', 11))) {
+			this.mostrar_error_campo('id_analysis_preparation', 'id_analysis_preparation_max_size_KO');
 			//return false;
-			return 'nombre_persona_max_size_KO'
+			return 'id_analysis_preparation_max_size_KO'
 		}
-		if (!(this.validaciones.format('nombre_persona', '[A-Za-z]*$'))){
-			this.mostrar_error_campo('nombre_persona','nombre_persona_format_KO');
+		if (!(this.validaciones.format('id_analysis_preparation', '[0-9]*$'))) {
+			this.mostrar_error_campo('id_analysis_preparation', 'id_analysis_preparation_format_KO');
 			//return false;
-			return 'nombre_persona_format_KO'
+			return 'id_analysis_preparation_format_KO'
 		}
-		this.mostrar_exito_campo('nombre_persona');
+		this.mostrar_exito_campo('id_analysis_preparation');
 		return true;
 
 	}
 
-	comprobar_apellidos_persona_SEARCH(){
+	comprobar_apellidos_persona_SEARCH() {
 
-		if (!(this.validaciones.max_size('apellidos_persona',20))){
-			this.mostrar_error_campo('apellidos_persona','apellidos_persona_max_size_KO');
+		if (!(this.validaciones.max_size('apellidos_persona', 20))) {
+			this.mostrar_error_campo('apellidos_persona', 'apellidos_persona_max_size_KO');
 			//return false;
 			return 'apellidos_persona_max_size_KO'
 		}
-		if (!(this.validaciones.format('apellidos_persona', '[A-Z\s]*$'))){
-			this.mostrar_error_campo('apellidos_persona','apellidos_persona_format_KO');
+		if (!(this.validaciones.format('apellidos_persona', '[A-Z\s]*$'))) {
+			this.mostrar_error_campo('apellidos_persona', 'apellidos_persona_format_KO');
 			//return false;
 			return 'apellidos_persona_format_KO'
 		}
@@ -422,26 +391,26 @@ class project extends EntidadAbstracta{
 
 	}
 
-	comprobar_fechaNacimiento_persona_SEARCH(){
-		
-		if (!(this.validaciones.format('fechaNacimiento_persona',''))){
-			this.mostrar_error_campo('fechaNacimiento_persona','fechaNacimiento_persona_format_KO');
+	comprobar_fechaNacimiento_persona_SEARCH() {
+
+		if (!(this.validaciones.format('fechaNacimiento_persona', ''))) {
+			this.mostrar_error_campo('fechaNacimiento_persona', 'fechaNacimiento_persona_format_KO');
 			return 'fechaNacimiento_persona_format_KO';
 		}
-		
+
 		this.mostrar_exito_campo('fechaNacimiento_persona');
 		return true;
 	}
 
-	comprobar_email_persona_SEARCH(){
+	comprobar_email_persona_SEARCH() {
 
-		if (!(this.validaciones.max_size('email_persona',20))){
-			this.mostrar_error_campo('email_persona','email_persona_max_size_KO');
+		if (!(this.validaciones.max_size('email_persona', 20))) {
+			this.mostrar_error_campo('email_persona', 'email_persona_max_size_KO');
 			//return false;
 			return 'email_persona_max_size_KO';
 		}
-		if (!(this.validaciones.format('email_persona','^[a-zA-Z0-9.@_]{0,20}'))){
-			this.mostrar_error_campo('email_persona','email_persona_format_KO');
+		if (!(this.validaciones.format('email_persona', '^[a-zA-Z0-9.@_]{0,20}'))) {
+			this.mostrar_error_campo('email_persona', 'email_persona_format_KO');
 			//return false;
 			return 'email_persona_format_KO';
 		}
@@ -450,15 +419,15 @@ class project extends EntidadAbstracta{
 
 	}
 
-	comprobar_foto_persona_SEARCH(){
+	comprobar_foto_persona_SEARCH() {
 
-		if (!(this.validaciones.max_size('foto_persona',20))){
-			this.mostrar_error_campo('foto_persona','foto_persona_max_size_KO');
+		if (!(this.validaciones.max_size('foto_persona', 20))) {
+			this.mostrar_error_campo('foto_persona', 'foto_persona_max_size_KO');
 			//return false;
 			return 'foto_persona_max_size_KO';
 		}
-		if (!(this.validaciones.format('foto_persona','[A-Z]+${,20}'))){
-			this.mostrar_error_campo('foto_persona','foto_persona_format_KO');
+		if (!(this.validaciones.format('foto_persona', '[A-Z]+${,20}'))) {
+			this.mostrar_error_campo('foto_persona', 'foto_persona_format_KO');
 			//return false;
 			return 'foto_persona_format_KO';
 		}
@@ -467,17 +436,17 @@ class project extends EntidadAbstracta{
 	}
 
 
-	comprobar_submit_SEARCH(){
-		
-		let result = 	(
-					(this.comprobar_nombre_persona_SEARCH()) &
-					(this.comprobar_apellidos_persona_SEARCH()) &
-					(this.comprobar_email_persona_SEARCH()) &
-					(this.comprobar_fechaNacimiento_persona_SEARCH())
-				);
-		
+	comprobar_submit_SEARCH() {
+
+		let result = (
+			(this.comprobar_nombre_persona_SEARCH()) &
+			(this.comprobar_apellidos_persona_SEARCH()) &
+			(this.comprobar_email_persona_SEARCH()) &
+			(this.comprobar_fechaNacimiento_persona_SEARCH())
+		);
+
 		result = Boolean(result);
-		
+
 		return result;
 
 	}
@@ -486,27 +455,19 @@ class project extends EntidadAbstracta{
 		metodo para mostrar información especial de atributo en la tabla de muestra de tuplas
 	*/
 
-	cambiardatosespecialestabla(atributo, valoratributo){
+	cambiardatosespecialestabla(atributo, valoratributo) {
 
-		if (atributo == 'foto_persona'){
+		if (atributo == 'file_analysis_preparation') {
 
-			if (valoratributo == ''){
+			if (valoratributo == '') {
 				return "no hay fichero";
 			}
-			let texto = valoratributo; 
-			texto += `<a id="link_file_analysis_preparation" href="http://193.147.87.202/ET2/filesuploaded/files_foto_persona/`;
+			let texto = valoratributo;
+			texto += `<a id="link_file_analysis_preparation" href="http://193.147.87.202/ET2/filesuploaded/file_analysis_preparation`;
 			texto += valoratributo;
 			texto += `"><img src="./iconos/FILE.png" /></a>`;
 
 			return texto;
-
-		}
-
-		if (atributo == 'fechaNacimiento_persona'){
-
-			let fech = valoratributo.split('-');
-    		let fechaformateada = fech[2] + '/' + fech[1] + '/' + fech[0];
-    		return fechaformateada;
 
 		}
 
@@ -516,17 +477,17 @@ class project extends EntidadAbstracta{
 		metodo para validaciones especiales de atributos en los formularios
 	*/
 
-	validacionesespeciales(atributo, prueba){
+	validacionesespeciales(atributo, prueba) {
 
-		if (atributo == 'fechaNacimiento_persona'){
-			if (prueba == 'fechavalida'){
+		if (atributo == 'fechaNacimiento_persona') {
+			if (prueba == 'fechavalida') {
 				let fecha = document.getElementById(atributo).value;
 				let fechaf = fecha.split("/");
 				let day = fechaf[0];
 				let month = fechaf[1];
 				let year = fechaf[2];
-				let date = new Date(year,month,'0');
-				if((day-0)>(date.getDate()-0)){
+				let date = new Date(year, month, '0');
+				if ((day - 0) > (date.getDate() - 0)) {
 					return false;
 				}
 				return true;
@@ -539,7 +500,7 @@ class project extends EntidadAbstracta{
 	/*
 	metodos auxiliares
 	*/
-	colocarboton(accion){
+	colocarboton(accion) {
 
 		let divboton = document.createElement('div');
 		divboton.id = 'div_boton';
@@ -549,57 +510,57 @@ class project extends EntidadAbstracta{
 		boton.id = 'submit_button';
 		boton.type = 'submit';
 		let img = document.createElement('img');
-		img.src = './iconos/'+accion+'.png';
+		img.src = './iconos/' + accion + '.png';
 		boton.append(img);
 		document.getElementById('div_boton').append(boton);
 
 	}
 
-	rellenarvaloresform(parametros){
-		
+	rellenarvaloresform(parametros) {
+
 		//obtener campos del formulario
-        	let campos = document.forms['IU_form'].elements;
-        	//recorrer todos los campos
-        	for (let i=0;i<campos.length;i++) {
-			if (document.getElementById(campos[i].id).type == 'file'){
-                
+		let campos = document.forms['IU_form'].elements;
+		//recorrer todos los campos
+		for (let i = 0; i < campos.length; i++) {
+			if (document.getElementById(campos[i].id).type == 'file') {
+
 			}
-			else{
-                		document.getElementById(campos[i].id).value = parametros[campos[i].id];
+			else {
+				document.getElementById(campos[i].id).value = parametros[campos[i].id];
 			}
-        	}
+		}
 	}
 
-	colocarvalidaciones(accion){
-		
+	colocarvalidaciones(accion) {
+
 		let evento;
 		//obtener campos del formulario
-        	let campos = document.forms['IU_form'].elements;
-        	//recorrer todos los campos
-        	for (let i=0;i<campos.length;i++) {
-			if ((document.getElementById(campos[i].id).tagName == 'INPUT') && (document.getElementById(campos[i].id).type !== 'file')){
-		                evento = 'onblur';
+		let campos = document.forms['IU_form'].elements;
+		//recorrer todos los campos
+		for (let i = 0; i < campos.length; i++) {
+			if ((document.getElementById(campos[i].id).tagName == 'INPUT') && (document.getElementById(campos[i].id).type !== 'file')) {
+				evento = 'onblur';
 			}
-			else{
+			else {
 				evento = 'onchange';
 			}
-		if (accion == 'SEARCH'){
-			document.getElementById(campos[i].id).setAttribute (evento,'validar.comprobar_'+campos[i].id+'_'+accion+'();');
-		}
-		else{
-			document.getElementById(campos[i].id).setAttribute (evento,'validar.comprobar_'+campos[i].id+'();');
-		}
-        
+			if (accion == 'SEARCH') {
+				document.getElementById(campos[i].id).setAttribute(evento, 'validar.comprobar_' + campos[i].id + '_' + accion + '();');
+			}
+			else {
+				document.getElementById(campos[i].id).setAttribute(evento, 'validar.comprobar_' + campos[i].id + '();');
+			}
+
 		}
 	}
 
-	ponernoactivoform(){
+	ponernoactivoform() {
 		//obtener campos del formulario
-	        let campos = document.forms['IU_form'].elements;
-	        //recorrer todos los campos
-	        for (let i=0;i<campos.length;i++) {
-	                document.getElementById(campos[i].id).setAttribute('readonly', true);
-	        }
+		let campos = document.forms['IU_form'].elements;
+		//recorrer todos los campos
+		for (let i = 0; i < campos.length; i++) {
+			document.getElementById(campos[i].id).setAttribute('readonly', true);
+		}
 	}
 
 
@@ -690,23 +651,23 @@ class project extends EntidadAbstracta{
 
 		for (let atributo of this.atributos){
 		
-        	textolineatitulos += '<th class="'+atributo+'">'+atributo+'</th>';
-        
+			textolineatitulos += '<th class="'+atributo+'">'+atributo+'</th>';
+	    
 		}  
-            
+		    
 		textolineatitulos += '<th colspan="3"></th>';
-        
-        textolineatitulos += '</tr>';
-        
-        let cabecera = document.getElementById("titulostablacabecera");
-        cabecera.innerHTML = textolineatitulos;
+	    
+		textolineatitulos += '</tr>';
+	    
+		let cabecera = document.getElementById("titulostablacabecera");
+		cabecera.innerHTML = textolineatitulos;
 
 		// filas
 
 		var textolineadatos = ''; 
 
 		for (let i=0;i<this.datos.length;i++){
-        
+	    
 			textolineadatos += '<tr style="background-color:grey;">';
 
 			for (let clave in this.datos[i]){
@@ -741,5 +702,5 @@ class project extends EntidadAbstracta{
 	}
 
 	*/
-	
+
 }

@@ -1,14 +1,14 @@
 class project extends EntidadAbstracta{
 
-	constructor(estest){
+	constructor(){
 
 		super();
 		
-		this.entidad = 'persona';
-		this.columnasamostrar = Array('dni','fechaNacimiento_persona','foto_persona','telefono_persona');
-		this.datosespecialestabla = Array('fechaNacimiento_persona','foto_persona');
+		this.entidad = 'project';
+		this.columnasamostrar = Array('id_project','name_project','responsable_project','organization_project', 'description_project' ,'code_project', 'acronym_project', 'id_sampling_methodology');
+		this.datosespecialestabla = Array('start_date_project','end_date_project','file_project');
 		
-		this.inicializar(estest);
+		this.inicializar();
 
 	}
 
