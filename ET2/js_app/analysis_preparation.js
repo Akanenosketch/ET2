@@ -23,31 +23,34 @@ class analysis_preparation extends EntidadAbstracta {
 		this.accion = '';
 
 		let formulario = `
+			<label id="label_id_analysis_preparation" class="label_id_analysis_preparation"></label>
+			<input type="text" id="id_analysis_preparation" name="id_analysis_preparation" />
+			<span id="div_error_id_analysis_preparation"></span>
+			<br>
 
 			<label id="label_name_analysis_preparation" class="label_name_analysis_preparation"></label>
 			<input type="text" id="name_analysis_preparation" name="name_analysis_preparation" />
-			<spam id="div_error_name_analysis_preparation"></span>
+			<span id="div_error_name_analysis_preparation"></span>
 			<br>
 
 			<label id="label_description_analysis_preparation" class="label_description_analysis_preparation"></label>
 			<input type="text" id="description_analysis_preparation" name="description_analysis_preparation" />
-			<spam id="div_error_description_analysis_preparation"></span>
+			<span id="div_error_description_analysis_preparation"></span>
 			<br>
 
 			<label id="label_bib_analysis_preparation" class="label_bib_analysis_preparation"></label>
 			<input type="text" id="bib_analysis_preparation" name="bib_analysis_preparation" />
-			<spam id="div_error_bib_analysis_preparation"></span>
+			<span id="div_error_bib_analysis_preparation"></span>
 			<br>
 
 			<label id="label_file_analysis_preparation" class="label_file_analysis_preparation"></label>
 			<input type='text' id='file_analysis_preparation' name='file_analysis_preparation'></input>
 			<span id="div_error_file_analysis_preparation"><a id="error_file_analysis_preparation"></a></span>
-			<a id="link_file_analysis_preparation" href="http://193.147.87.202/ET2/filesuploaded/file_analysis_preparation/"><img src="./iconos/FILE.png" /></a>
-			<label id="label_new_file_analysis_preparation" class="label_new_analysis_preparation"></label>
-			<input type='file' id='new_file_analysis_preparation' name='new_file_analysis_preparation'></input>
-			<span id="div_error_nuevo_foto_persona"><a id="error_nuevo_foto_persona"></a></span>
+			<a id="link_file_analysis_preparation" href="http://193.147.87.202/ET2/filesuploaded/files_file_analysis_preparation/"><img src="./iconos/FILE.png" /></a>
+			<label id="label_nuevo_file_analysis_preparation" class="label_nuevo_file_analysis_preparation"></label>
+			<input type='file' id='nuevo_file_analysis_preparation' name='nuevo_file_analysis_preparation'></input>
+			<span id="div_error_nuevo_file_analysis_preparation"><a id="error_nuevo_file_analysis_preparation"></a></span>
 			<br>
-
 
 		`;
 
@@ -70,10 +73,13 @@ class analysis_preparation extends EntidadAbstracta {
 		// poner titulo al formulario
 		document.getElementById('class_contenido_titulo_form').className = 'text_contenido_titulo_form_' + this.entidad + '_ADD';
 
-
-		//editar
-		document.getElementById('label_file_analysis_preparation').remove();
+		//Eliminamos los campos innecesarios
+		//Valor autoincremental
+		document.getElementById('label_id_analysis_preparation').remove();
+		document.getElementById('id_analysis_preparation').remove();
+		//Ficheros
 		document.getElementById('file_analysis_preparation').remove();
+		document.getElementById('label_nuevo_file_analysis_preparation').remove();
 		document.getElementById('link_file_analysis_preparation').remove();
 
 		this.colocarvalidaciones('ADD');
@@ -94,8 +100,12 @@ class analysis_preparation extends EntidadAbstracta {
 			this.cargar_formulario_html();
 		}
 
-		document.getElementById('label_file_analysis_preparation').remove();
-		document.getElementById('file_analysis_preparation').remove();
+		//Poner titulo al formulario
+		document.getElementById('class_contenido_titulo_form').className = 'text_contenido_titulo_form_' + this.entidad + '_SEARCH';
+
+		//Eliminar campos innecesarios
+		document.getElementById('label_nuevo_file_analysis_preparation').remove();
+		document.getElementById('nuevo_file_analysis_preparation').remove();
 		document.getElementById('link_file_analysis_preparation').remove();
 
 		this.colocarvalidaciones('SEARCH');
@@ -128,15 +138,6 @@ class analysis_preparation extends EntidadAbstracta {
 		document.getElementById('file_analysis_preparation').setAttribute('readonly', true);
 		document.getElementById('id_analysis_preparation').setAttribute('readonly', true);
 
-		/*
-		cambio presentacion fecha a formato dd/mm/aaaa directamente en codigo o reutilizando el metodo de cambio de presentacion en tabla
-		*/
-		/*
-		let fech = parametros.fechaNacimiento_persona.split('-');
-		let fechaformateada = fech[2] + '/' + fech[1] + '/' + fech[0];
-		document.getElementById('fechaNacimiento_persona').value = fechaformateada;
-		*/
-
 		// añado el nombre de fichero a la ruta de href que tengo en el hiperenlace del fichero
 		document.getElementById('link_file_analysis_preparation').href += parametros.file_analysis_preparation;
 
@@ -164,19 +165,14 @@ class analysis_preparation extends EntidadAbstracta {
 			this.cargar_formulario_html();
 		}
 
-		document.getElementById('label_new_file_analysis_preparation').remove();
-		document.getElementById('new_file_analysis_preparation').remove();
+		// poner titulo al formulario
+		document.getElementById('class_contenido_titulo_form').className = 'text_contenido_titulo_form_' + this.entidad + '_DELETE';
+
+		//Eliminamos los elementos innecesarios
+		document.getElementById('label_nuevo_file_analysis_preparation').remove();
+		document.getElementById('nuevo_file_analysis_preparation').remove();
 
 		this.rellenarvaloresform(parametros);
-
-		/*
-		cambio presentacion fecha a formato dd/mm/aaaa directamente en codigo o reutilizando el metodo de cambio de presentacion en tabla
-		*/
-		/*
-		let fech = parametros.fechaNacimiento_persona.split('-');
-		let fechaformateada = fech[2] + '/' + fech[1] + '/' + fech[0];
-		document.getElementById('fechaNacimiento_persona').value = fechaformateada;
-		*/
 
 		document.getElementById('link_file_analysis_preparation').href += parametros.file_analysis_preparation;
 
@@ -199,21 +195,15 @@ class analysis_preparation extends EntidadAbstracta {
 			this.cargar_formulario_html();
 		}
 
-		document.getElementById('label_new_file_analysis_preparation').remove();
-		document.getElementById('new_analysis_preparation').remove();
+		// poner titulo al formulario
+		document.getElementById('class_contenido_titulo_form').className = 'text_contenido_titulo_form_' + this.entidad + '_SHOWCURRENT';
+
+		document.getElementById('label_nuevo_file_analysis_preparation').remove();
+		document.getElementById('nuevo_file_analysis_preparation').remove();
 
 		this.rellenarvaloresform(parametros);
 
-		/*
-		cambio presentacion fecha a formato dd/mm/aaaa directamente en codigo o reutilizando el metodo de cambio de presentacion en tabla
-		*/
-		/*
-		let fech = parametros.fechaNacimiento_persona.split('-');
-		let fechaformateada = fech[2] + '/' + fech[1] + '/' + fech[0];
-		document.getElementById('fechaNacimiento_persona').value = fechaformateada;
-		*/
-
-		document.getElementById('link_file_analysis_preparation').href += parametros.foto_persona;
+		document.getElementById('link_file_analysis_preparation').href += parametros.file_analysis_preparation;
 
 		this.ponernoactivoform();
 
@@ -231,6 +221,11 @@ class analysis_preparation extends EntidadAbstracta {
 	No se añade comprobaciones para id_analysis_preparation debido a que este valor es autoincremental
 	*/
 
+	comporbar_id_analysis_preparation() {
+		//Al ser autoincremental no se realizan cambios
+		return true;
+	}
+
 	comprobar_name_analysis_preparation() {
 
 		if (!(this.validaciones.min_size('name_analysis_preparation', 8))) {
@@ -241,7 +236,7 @@ class analysis_preparation extends EntidadAbstracta {
 			this.mostrar_error_campo('name_analysis_preparation', 'name_analysis_preparation_max_size_KO');
 			return 'name_analysis_preparation_max_size_KO'
 		}
-		if (!(this.validaciones.format('name_analysis_preparation', '^[a-zA-z]+([\s][a-zA-Z]+)*$'))) {
+		if (!(this.validaciones.format('name_analysis_preparation', '^[A-Za-z ]*$'))) {
 			this.mostrar_error_campo('name_analysis_preparation', 'name_analysis_preparation_format_KO');
 			return 'name_analysis_preparation_format_KO'
 		}
@@ -262,7 +257,7 @@ class analysis_preparation extends EntidadAbstracta {
 			//return false;
 			return 'description_analysis_preparation_max_size_KO';
 		}
-		if (!(this.validaciones.format('description_analysis_preparation', '^[a-zA-z]+([a-zA-Z]+)*$'))) {
+		if (!(this.validaciones.format('description_analysis_preparation', '^[A-Za-z ]*$'))) {
 			this.mostrar_error_campo('description_analysis_preparation', 'description_analysis_preparation_format_KO');
 			//return false;
 			return 'description_analysis_preparation_format_KO'
@@ -273,65 +268,65 @@ class analysis_preparation extends EntidadAbstracta {
 
 	comprobar_bib_analysis_preparation() {
 
-		if (!(this.validaciones.min_size('bib_analysis_prepraration', 5))) {
-			this.mostrar_error_campo('bib_analysis_prepraration', 'bib_analysis_preparation_min_size_KO');
+		if (!(this.validaciones.min_size('bib_analysis_preparation', 6))) {
+			this.mostrar_error_campo('bib_analysis_preparation', 'bib_analysis_preparation_min_size_KO');
 			//return false;
 			return 'bib_analysis_preparation_min_size_KO';
 		}
-		if (!(this.validaciones.max_size('bib_analysis_prepraration', 20))) {
-			this.mostrar_error_campo('bib_analysis_prepraration', 'bib_analysis_preparation_max_size_KO');
+		if (!(this.validaciones.max_size('bib_analysis_preparation', 200))) {
+			this.mostrar_error_campo('bib_analysis_preparation', 'bib_analysis_preparation_max_size_KO');
 			//return false;
 			return 'bib_analysis_preparation_max_size_KO';
 		}
-		if (!(this.validaciones.format('bib_analysis_prepraration', '^[^@]+@[^@]+\.[A-Za-z]{2,}$'))) {
-			this.mostrar_error_campo('bib_analysis_prepraration', 'bib_analysis_preparation_format_KO');
+		if (!(this.validaciones.format('bib_analysis_preparation', `^[A-Za-z áéíóúñÁÉÍÓÚÑ¿¡ !"#$%&'()*+,./:;<=>?@\[\\\]^_\`{|}~-]*$`))) {
+			this.mostrar_error_campo('bib_analysis_preparation', 'bib_analysis_preparation_format_KO');
 			//return false;
 			return 'bib_analysis_preparation_format_KO';
 		}
-		this.mostrar_exito_campo('bib_analysis_prepraration');
+		this.mostrar_exito_campo('bib_analysis_preparation');
 		return true;
 	}
 
-	comprobar_new_file_analysis_preparation() {
+	comprobar_nuevo_file_analysis_preparation() {
 
-		if (document.getElementById('new_file_analysis_preparation').files.length == 0) {
+		if (document.getElementById('nuevo_file_analysis_preparation').files.length == 0) {
 			if (this.accion == 'EDIT') {
 				return true;
 			}
 			else {
 				if (this.accion = "ADD") {
-					this.mostrar_error_campo('new_file_analysis_preparation', 'new_file_analysis_preparation_empty_KO');
-					return 'new_file_analysis_preparation_empty_KO';
+					this.mostrar_error_campo('nuevo_file_analysis_preparation', 'nuevo_file_analysis_preparation_empty_KO');
+					return 'nuevo_file_analysis_preparation_empty_KO';
 				}
 			}
 		}
 
 		// si tuviera un campo con multiples ficheros tendria que hacer un bucle para comprobar cada file[i]
-		let mifichero = document.getElementById('new_file_analysis_preparation').files[0];
+		let mifichero = document.getElementById('nuevo_file_analysis_preparation').files[0];
 
 
-		if (!(this.validaciones.max_size_file(mifichero, 20000))) {
-			this.mostrar_error_campo('new_file_analysis_preparation', 'new_file_analysis_preparation_max_size_file_KO');
-			return 'nuevo_foto_persona_max_size_file_KO';
+		if (!(this.validaciones.max_size_file(mifichero, 2000000))) {
+			this.mostrar_error_campo('nuevo_file_analysis_preparation', 'nuevo_file_analysis_preparation_max_size_file_KO');
+			return 'nuevo_file_analysis_preparation_max_size_file_KO';
 		}
-		if (!(this.validaciones.type_file(mifichero, Array("application/pdf", "application/msword")))) {
-			this.mostrar_error_campo('new_file_analysis_preparation', 'new_file_analysis_preparation_type_file_KO');
-			return 'new_file_analysis_preparation_type_file_KO';
+		if (!(this.validaciones.type_file(mifichero, Array("application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document")))) {
+			this.mostrar_error_campo('nuevo_file_analysis_preparation', 'nuevo_file_analysis_preparation_type_file_KO');
+			return 'nuevo_file_analysis_preparation_type_file_KO';
 		}
-		if (!(this.validaciones.format_name_file(mifichero, '^[a-zA-z]+([a-zA-Z]+)*$'))) {
-			this.mostrar_error_campo('new_file_analysis_preparation', 'new_file_analysis_preparation_format_name_file_KO');
-			return 'new_file_analysis_preparation_format_name_file_KO';
+		if (!(this.validaciones.format_name_file(mifichero, '[A-Za-z.]*$'))) {
+			this.mostrar_error_campo('nuevo_file_analysis_preparation', 'nuevo_file_analysis_preparation_format_name_file_KO');
+			return 'nuevo_file_analysis_preparation_format_name_file_KO';
 		}
-		if (!this.validaciones.min_size('new_file_analysis_preparation', 7)) {
-			this.mostrar_error_campo('new_file_analysis_preparation', 'new_file_analysis_preparation_min_size_name_KO');
-			return 'new_file_analysis_preparation_min_size_name_KO';
+		if (!this.validaciones.min_size('nuevo_file_analysis_preparation', 7)) {
+			this.mostrar_error_campo('nuevo_file_analysis_preparation', 'nuevo_file_analysis_preparation_min_size_name_KO');
+			return 'nuevo_file_analysis_preparation_min_size_name_KO';
 		}
-		if (!this.validaciones.max_size('new_file_analysis_preparation', 100)) {
-			this.mostrar_error_campo('new_file_analysis_preparation', 'new_file_analysis_preparation_max_size_name_KO');
-			return 'new_file_analysis_preparation_max_size_name_KO';
+		if (!this.validaciones.max_size('nuevo_file_analysis_preparation', 100)) {
+			this.mostrar_error_campo('nuevo_file_analysis_preparation', 'nuevo_file_analysis_preparation_max_size_name_KO');
+			return 'nuevo_file_analysis_preparation_max_size_name_KO';
 		}
 
-		this.mostrar_exito_campo('new_file_analysis_preparation');
+		this.mostrar_exito_campo('nuevo_file_analysis_preparation');
 		return true;
 
 	}
@@ -339,10 +334,11 @@ class analysis_preparation extends EntidadAbstracta {
 	comprobar_submit() {
 
 		let result = (
+			(this.comporbar_id_analysis_preparation()) &
 			(this.comprobar_name_analysis_preparation()) &
 			(this.comprobar_description_analysis_preparation()) &
 			(this.comprobar_bib_analysis_preparation()) &
-			(this.comprobar_new_file_analysis_preparation())
+			(this.comprobar_nuevo_file_analysis_preparation())
 		);
 
 		result = Boolean(result);
@@ -374,64 +370,68 @@ class analysis_preparation extends EntidadAbstracta {
 
 	}
 
-	comprobar_apellidos_persona_SEARCH() {
+	comprobar_name_analysis_preparation_SEARCH() {
 
-		if (!(this.validaciones.max_size('apellidos_persona', 20))) {
-			this.mostrar_error_campo('apellidos_persona', 'apellidos_persona_max_size_KO');
+		if (!(this.validaciones.max_size('name_analysis_preparation', 100))) {
+			this.mostrar_error_campo('name_analysis_preparation', 'name_analysis_preparation_max_size_KO');
 			//return false;
-			return 'apellidos_persona_max_size_KO'
+			return 'name_analysis_preparation_max_size_KO'
 		}
-		if (!(this.validaciones.format('apellidos_persona', '[A-Z\s]*$'))) {
-			this.mostrar_error_campo('apellidos_persona', 'apellidos_persona_format_KO');
+		if (!(this.validaciones.format('name_analysis_preparation', '[A-Za-z ]*$'))) {
+			this.mostrar_error_campo('name_analysis_preparation', 'name_analysis_preparation_format_KO');
 			//return false;
-			return 'apellidos_persona_format_KO'
+			return 'name_analysis_preparation_format_KO'
 		}
-		this.mostrar_exito_campo('apellidos_persona');
+		this.mostrar_exito_campo('name_analysis_preparation');
 		return true;
 
 	}
 
-	comprobar_fechaNacimiento_persona_SEARCH() {
+	comprobar_description_analysis_preparation_SEARCH() {
 
-		if (!(this.validaciones.format('fechaNacimiento_persona', ''))) {
-			this.mostrar_error_campo('fechaNacimiento_persona', 'fechaNacimiento_persona_format_KO');
-			return 'fechaNacimiento_persona_format_KO';
+		if (!(this.validaciones.max_size('description_analysis_preparation', 5000))) {
+			this.mostrar_error_campo('description_analysis_preparation', 'description_analysis_preparation_max_size_KO');
+			//return false;
+			return 'description_analysis_preparation_max_size_KO'
 		}
-
-		this.mostrar_exito_campo('fechaNacimiento_persona');
+		if (!(this.validaciones.format('description_analysis_preparation', '[A-Za-z ]*$'))) {
+			this.mostrar_error_campo('description_analysis_preparation', 'description_analysis_preparation_format_KO');
+			//return false;
+			return 'description_analysis_preparation_format_KO'
+		}
+		this.mostrar_exito_campo('description_analysis_preparation');
 		return true;
 	}
 
-	comprobar_email_persona_SEARCH() {
+	comprobar_bib_analysis_preparation_SEARCH() {
 
-		if (!(this.validaciones.max_size('email_persona', 20))) {
-			this.mostrar_error_campo('email_persona', 'email_persona_max_size_KO');
+		if (!(this.validaciones.max_size('bib_analysis_preparation', 200))) {
+			this.mostrar_error_campo('bib_analysis_preparation', 'bib_analysis_preparation_max_size_KO');
 			//return false;
-			return 'email_persona_max_size_KO';
+			return 'bib_analysis_preparation_max_size_KO'
 		}
-		if (!(this.validaciones.format('email_persona', '^[a-zA-Z0-9.@_]{0,20}'))) {
-			this.mostrar_error_campo('email_persona', 'email_persona_format_KO');
+		if (!(this.validaciones.format('bib_analysis_preparation', `^[A-Za-z áéíóúñÁÉÍÓÚÑ¿¡ !"#$%&'()*+,./:;<=>?@\[\\\]^_\`{|}~-]*$`))) {
+			this.mostrar_error_campo('bib_analysis_preparation', 'bib_analysis_preparation_format_KO');
 			//return false;
-			return 'email_persona_format_KO';
+			return 'bib_analysis_preparation_format_KO'
 		}
-		this.mostrar_exito_campo('email_persona');
+		this.mostrar_exito_campo('bib_analysis_preparation');
 		return true;
-
 	}
 
-	comprobar_foto_persona_SEARCH() {
+	comprobar_file_analysis_preparation_SEARCH() {
 
-		if (!(this.validaciones.max_size('foto_persona', 20))) {
-			this.mostrar_error_campo('foto_persona', 'foto_persona_max_size_KO');
+		if (!(this.validaciones.max_size('file_analysis_preparation', 20))) {
+			this.mostrar_error_campo('file_analysis_preparation', 'file_analysis_preparation_max_size_KO');
 			//return false;
-			return 'foto_persona_max_size_KO';
+			return 'file_analysis_preparation_max_size_KO';
 		}
-		if (!(this.validaciones.format('foto_persona', '[A-Z]+${,20}'))) {
-			this.mostrar_error_campo('foto_persona', 'foto_persona_format_KO');
+		if (!(this.validaciones.format('file_analysis_preparation', '^[A-Za-z.]*$'))) {
+			this.mostrar_error_campo('file_analysis_preparation', 'file_analysis_preparation_format_KO');
 			//return false;
-			return 'foto_persona_format_KO';
+			return 'file_analysis_preparation_format_KO';
 		}
-		this.mostrar_exito_campo('foto_persona');
+		this.mostrar_exito_campo('file_analysis_preparation');
 		return true;
 	}
 
@@ -439,10 +439,11 @@ class analysis_preparation extends EntidadAbstracta {
 	comprobar_submit_SEARCH() {
 
 		let result = (
-			(this.comprobar_nombre_persona_SEARCH()) &
-			(this.comprobar_apellidos_persona_SEARCH()) &
-			(this.comprobar_email_persona_SEARCH()) &
-			(this.comprobar_fechaNacimiento_persona_SEARCH())
+			(this.comprobar_id_analysis_preparation_SEARCH()) &
+			(this.comprobar_name_analysis_preparation_SEARCH()) &
+			(this.comprobar_description_analysis_preparation_SEARCH()) &
+			(this.comprobar_bib_analysis_preparation_SEARCH()) &
+			(this.comprobar_file_analysis_preparation_SEARCH())
 		);
 
 		result = Boolean(result);
@@ -462,40 +463,19 @@ class analysis_preparation extends EntidadAbstracta {
 			if (valoratributo == '') {
 				return "no hay fichero";
 			}
+
 			let texto = valoratributo;
-			texto += `<a id="link_file_analysis_preparation" href="http://193.147.87.202/ET2/filesuploaded/file_analysis_preparation`;
+			texto += `<a id="link_file_analysis_preparation`;
+			texto += `_`;
+			texto += valoratributo; //Para evitar ids duplicados
+			texto += `" href="http://193.147.87.202/ET2/filesuploaded/files_file_analysis_preparation/`;
 			texto += valoratributo;
 			texto += `"><img src="./iconos/FILE.png" /></a>`;
-
 			return texto;
 
 		}
 
 	}
-
-	/*
-		metodo para validaciones especiales de atributos en los formularios
-	*/
-
-	validacionesespeciales(atributo, prueba) {
-
-		if (atributo == 'fechaNacimiento_persona') {
-			if (prueba == 'fechavalida') {
-				let fecha = document.getElementById(atributo).value;
-				let fechaf = fecha.split("/");
-				let day = fechaf[0];
-				let month = fechaf[1];
-				let year = fechaf[2];
-				let date = new Date(year, month, '0');
-				if ((day - 0) > (date.getDate() - 0)) {
-					return false;
-				}
-				return true;
-			}
-		}
-
-	}
-
 
 	/*
 	metodos auxiliares
@@ -522,10 +502,7 @@ class analysis_preparation extends EntidadAbstracta {
 		let campos = document.forms['IU_form'].elements;
 		//recorrer todos los campos
 		for (let i = 0; i < campos.length; i++) {
-			if (document.getElementById(campos[i].id).type == 'file') {
-
-			}
-			else {
+			if (document.getElementById(campos[i].id).type != 'file') {
 				document.getElementById(campos[i].id).value = parametros[campos[i].id];
 			}
 		}
@@ -562,145 +539,5 @@ class analysis_preparation extends EntidadAbstracta {
 			document.getElementById(campos[i].id).setAttribute('readonly', true);
 		}
 	}
-
-
-	/*
-
-	crearTablaDatos(){
-
-		document.getElementById("id_tabla_datos").style.display = 'block';
-
-		//construir tabla
-		this.hacertabla();
-		//construir select
-		this.construirSelect();
-		
-		//ocultar segun columnasamostrar
-		this.mostrarocultarcolumnas();
-
-	}
-
-	modificarcolumnasamostrar(atributo){
-
-
-		let nuevascolumnas = Array();
-		if (this.columnasamostrar.includes(atributo)){
-			// borrar ese atributo
-			for (let i=0;i<this.columnasamostrar.length;i++){
-				if (this.columnasamostrar[i] == atributo){}
-				else{
-					nuevascolumnas.push(this.columnasamostrar[i]);
-				}
-			}
-			this.columnasamostrar = nuevascolumnas;
-		}
-		else{
-			// añadir
-			this.columnasamostrar.push(atributo);
-		}
-
-
-		this.crearTablaDatos();
-	}
-
-	mostrarocultarcolumnas(){
-
-		for (let columna of this.atributos){
-			if (this.columnasamostrar.includes(columna)){}
-			else{
-				//document.querySelector("th[class='"+columna+" tabla-th-"+columna+"']").style.display = 'none';
-				document.querySelector("th[class='"+columna+"']").style.display = 'none';
-				let arraytds = document.querySelectorAll("td[class='tabla-td-"+columna+"']");
-				for (let i=0;i<arraytds.length;i++){
-					arraytds[i].style.display = 'none';
-				}
-			}
-		}
-
-
-	}
-
-	construirSelect(){
-
-		document.getElementById("seleccioncolumnas").innerHTML = '';
-		
-		let optionselect = '';
-		for (let atributo of this.atributos){
-			optionselect = document.createElement('option');
-			optionselect.className = atributo;
-			optionselect.innerHTML = atributo;
-			optionselect.setAttribute("onclick","validar.modificarcolumnasamostrar('"+atributo+"');");
-			if (this.columnasamostrar.includes(atributo)){
-				optionselect.selected = true;
-			}
-			document.getElementById("seleccioncolumnas").append(optionselect);
-		}
-		setLang();
-	}
-
-	hacertabla(){
-
-		// titulos
-
-		document.getElementById("text_title_page").className = "text_titulo_page_"+this.entidad;
-		document.getElementById('title_page').style.display = 'block';
-
-		this.atributos = Object.keys(this.datos[0]);
-
-		var textolineatitulos = '<tr>';
-
-		for (let atributo of this.atributos){
-		
-			textolineatitulos += '<th class="'+atributo+'">'+atributo+'</th>';
-	    
-		}  
-		    
-		textolineatitulos += '<th colspan="3"></th>';
-	    
-		textolineatitulos += '</tr>';
-	    
-		let cabecera = document.getElementById("titulostablacabecera");
-		cabecera.innerHTML = textolineatitulos;
-
-		// filas
-
-		var textolineadatos = ''; 
-
-		for (let i=0;i<this.datos.length;i++){
-	    
-			textolineadatos += '<tr style="background-color:grey;">';
-
-			for (let clave in this.datos[i]){
-
-				if (this.datosespecialestabla.includes(clave)){
-					let valorcolumna = this.cambiardatosespecialestabla(clave,this.datos[i][clave]);
-					textolineadatos += '<td class="tabla-td-'+clave+'">'+valorcolumna+'</td>';
-				}
-				else{
-					textolineadatos += '<td class="tabla-td-'+clave+'">'+this.datos[i][clave]+'</td>';
-				}
-	
-			}
-	
-			// crear los td para cada boton de llamada a funcion de formulario de accion (EDIT, DELETE O SHOWCURRENT)
-	
-			let lineaedit = this.crearboton(this.entidad, 'EDIT', JSON.stringify(this.datos[i]));
-			let lineadelete = this.crearboton(this.entidad, 'DELETE', JSON.stringify(this.datos[i]));
-			let lineashowcurrent = this.crearboton(this.entidad, 'SHOWCURRENT', JSON.stringify(this.datos[i]));
-	
-			textolineadatos += lineaedit+lineadelete+lineashowcurrent;
-	
-			textolineadatos += '</tr>';
-	
-		}
-		
-		let cuerpo = document.getElementById('muestradatostabla');
-		cuerpo.innerHTML = textolineadatos;
-
-		setLang();
-
-	}
-
-	*/
 
 }

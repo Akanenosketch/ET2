@@ -12,6 +12,16 @@ let textos_ES = {
 	"resultadoprueba": "formato correcto estructura pruebas",
 	"res_pruebas": "Tabla ejecución de pruebas",
 	"resultadotest": "Resultado ejecucion pruebas",
+	"text_contenido_titulo_form_project_ADD": "Formulario para añadir un nuevo proyecto",
+	"text_contenido_titulo_form_project_EDIT": "Formulario para editar un proyecto existente",
+	"text_contenido_titulo_form_project_SEARCH": "Formulario para buscar un proyecto",
+	"text_contenido_titulo_form_project_SHOWCURRENT": "Vista de proyecto",
+	"text_contenido_titulo_form_project_DELETE": "Formulario para eliminar un proyecto",
+	"text_contenido_titulo_form_analysis_preparation_ADD": "Formulario para añadir un nuevo análisis",
+	"text_contenido_titulo_form_analysis_preparation_EDIT": "Formulario para editar un analisis existente",
+	"text_contenido_titulo_form_analysis_preparation_SEARCH": "Formulario para buscar un análisis",
+	"text_contenido_titulo_form_analysis_preparation_SHOWCURRENT": "Vista de análisis",
+	"text_contenido_titulo_form_analysis_preparation_DELETE": "Formulario para eliminar un análisis",
 
 	// atributos
 	"dni": "Identificación",
@@ -29,6 +39,7 @@ let textos_ES = {
 	"label_description_analysis_preparation": "Descripcion de analisis",
 	"label_bib_analysis_preparation": "Bib de analisis",
 	"label_file_analysis_preparation": "Archivos de analisis",
+	"label_nuevo_file_analysis_preparation": "Nuevo archivo de analisis",
 	"label_id_project":"ID de proyecto",
 	"label_name_project":"Nombre de proyecto",
 	"label_start_date_project":"Fecha inicio de proyecto",
@@ -40,12 +51,6 @@ let textos_ES = {
 	"label_code_project":"Codigo de proyecto",
 	"label_acronym_project":"Acronimo de proyecto",
 	"label_id_sampling_methodology":"ID de metodologia de muestreo",
-
-	//Formularios REVIAR
-	"text_contenido_titulo_form_project_ADD": "Formulario para añadir un nuevo proyecto",
-	"text_contenido_titulo_form_project_EDIT": "Formulario para edicion de proyecto",
-	"text_contenido_titulo_form_analysis_preparation_ADD": "Formulario para anhadir un nuevo analisis",
-	"text_contenido_titulo_form_analysis_preparation_EDIT": "Formulario para edicion de analisis",
 
 	// errores validaciones formulario
 	// ADD/EDIT

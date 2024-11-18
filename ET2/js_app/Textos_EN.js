@@ -14,8 +14,14 @@ let textos_EN = {
 	"resultadotest": "Test execution results",
 	"text_contenido_titulo_form_project_ADD": "Project Add Form",
 	"text_contenido_titulo_form_project_EDIT": "Project Edit Form",
+	"text_contenido_titulo_form_project_SEARCH": "Project Preparation Search Form",
+	"text_contenido_titulo_form_project_SHOWCURRENT": "Project Preparation ShowCurrent Form",
+	"text_contenido_titulo_form_project_DELETE": "Project Preparation Delete Form",
 	"text_contenido_titulo_form_analysis_preparation_ADD": "Analysis Preparation Add Form",
 	"text_contenido_titulo_form_analysis_preparation_EDIT": "Analysis Preparation Edit Form",
+	"text_contenido_titulo_form_analysis_preparation_SEARCH": "Analysis Preparation Search Form",
+	"text_contenido_titulo_form_analysis_preparation_SHOWCURRENT": "Analysis Preparation ShowCurrent Form",
+	"text_contenido_titulo_form_analysis_preparation_DELETE": "Analysis Preparation Delete Form",
 
 	// atributos
 	"label_id_analysis_preparation": "Analysis ID",
@@ -34,6 +40,7 @@ let textos_EN = {
 	"label_description_analysis_preparation": "Analysis' Description",
 	"label_bib_analysis_preparation": "Analysis' BIB",
 	"label_file_analysis_preparation": "Analysis' files",
+	"label_nuevo_file_analysis_preparation": "New analysis file",
 	"label_id_project": "Project ID",
 	"label_name_project": "Project name",
 	"label_start_date_project": "Start date project",
@@ -45,15 +52,6 @@ let textos_EN = {
 	"label_code_project": "Project code",
 	"label_acronym_project": "Project acronym",
 	"label_id_sampling_methodology": "ID sampling methodology",
-	"label_dni": "Identification",
-	"label_nombre_persona": "Name",
-	"label_apellidos_persona": "Surname",
-	"label_fechaNacimiento_persona": "Birthdate",
-	"label_direccion_persona": "Direction",
-	"label_telefono_persona": "Phone Number",
-	"label_email_persona": "E-Mail",
-	"label_foto_persona": "Photography",
-	"label_nuevo_foto_persona": "New Photograph",
 
 	// errores validaciones formulario
 	// ADD/EDIT
