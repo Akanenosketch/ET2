@@ -34,7 +34,7 @@ class project extends EntidadAbstracta {
 			<br>
 
 			<label id="label_start_date_project" class="label_start_date_project">Fecha de inicio del projecto</label>
-			<input type="text" id="start_date_project" name="date_start_project" />
+			<input type="text" id="start_date_project" name="start_date_project" />
 			<span id="div_error_start_date_project"></span>
 			<br>
 
@@ -321,18 +321,18 @@ class project extends EntidadAbstracta {
 	}
 
 	/**
-	 * Formato de fehca permitido: dd/mm/aaaa
+	 * Formato de fecha permitido: dd/mm/aaaa
 	 * Debe de ser una fecha válida (no puede ser por ejemplo 29/02/2003)
 	 * 
 	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
-	 */	
+	 */
 	comprobar_start_date_project() {
 
 		if (!(this.validaciones.format('start_date_project', '[0-9]{2,}[/][0-9]{2,}[/][0-9]{4,}'))) {
 			this.mostrar_error_campo('start_date_project', 'start_date_project_format_KO');
 			return 'start_date_project_format_KO';
 		}
-		if (!(this.validacionesespeciales('start_date_project',null, 'fechavalida'))) {
+		if (!(this.validacionesespeciales('start_date_project', null, 'fechavalida'))) {
 			this.mostrar_error_campo('start_date_project', 'start_date_project_valid_KO');
 			return 'start_date_project_valid_KO';
 		}
@@ -342,7 +342,7 @@ class project extends EntidadAbstracta {
 	}
 
 	/**
-	 * Formato de fehca permitido: dd/mm/aaaa
+	 * Formato de fecha permitido: dd/mm/aaaa
 	 * Debe de ser una fecha válida (no puede ser por ejemplo 29/02/2003)
 	 * La fecha de fin de proyecto debe de ser igual o superior a la fecha introducida en start_date_proyect
 	 * 
@@ -358,7 +358,7 @@ class project extends EntidadAbstracta {
 			this.mostrar_error_campo('end_date_project', 'end_date_project_valid_KO');
 			return 'end_date_project_valid_KO';
 		}
-		if (!(this.validacionesespeciales('start_date_project', 'end_date_project','fechasuperior'))) {
+		if (!(this.validacionesespeciales('start_date_project', 'end_date_project', 'fechasuperior'))) {
 			this.mostrar_error_campo('end_date_project', 'end_date_project_correct_KO');
 			return 'end_date_project_correct_KO';
 		}
@@ -610,7 +610,7 @@ class project extends EntidadAbstracta {
 	 * Max 11
 	 * Solo están permitidos los digitos
 	 * 
-	 * @returns true 
+	 * @returns true si cumple las condicione y falso en el caso contrario
 	 */
 	comprobar_id_project_SEARCH() {
 
@@ -654,30 +654,41 @@ class project extends EntidadAbstracta {
 	}
 
 	/**
-	 * Formato de fehca permitido: dd/mm/aaaa
+	 * Formato de fecha permitido: dd/mm/aaaa
 	 * Debe de ser una fecha válida (no puede ser por ejemplo 29/02/2003)
 	 * 
 	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
-	 */	
+	 */
 	comprobar_start_date_project_SEARCH() {
 
-	if(document.getElementById('start_date_project').value != null){
-		if (!(this.validaciones.format('start_date_project', '[0-9]{2,}[/][0-9]{2,}[/][0-9]{4,} '))) {
-			this.mostrar_error_campo('start_date_project', 'start_date_project_format_KO');
-			return 'start_date_project_format_KO';
+		if (document.getElementById('start_date_project').value != null) {
+			if (!(this.validaciones.format('start_date_project', '[0-9]{2,}[/][0-9]{2,}[/][0-9]{4,} '))) {
+				this.mostrar_error_campo('start_date_project', 'start_date_project_format_KO');
+				return 'start_date_project_format_KO';
+			}
+			if (!(this.validacionesespeciales('start_date_project', null, 'fechavalida'))) {
+				this.mostrar_error_campo('start_date_project', 'start_date_project_valid_KO');
+				return 'start_date_project_valid_KO';
+			}
+			this.mostrar_exito_campo('start_date_project');
+			return true;
+
 		}
-		if (!(this.validacionesespeciales('start_date_project',null, 'fechavalida'))) {
-			this.mostrar_error_campo('start_date_project', 'start_date_project_valid_KO');
-			return 'start_date_project_valid_KO';
+		else {
+			this.mostrar_exito_campo('start_date_project');
+			return true;
+
 		}
 
 	}
 
-
-		this.mostrar_exito_campo('start_date_project');
-		return true;
-	}
-
+	/**
+	 * Formato de fecha permitido: dd/mm/aaaa
+	 * Debe de ser una fecha válida (no puede ser por ejemplo 29/02/2003)
+	 * Si hay introducido una fecha de inicio debe de comprobar si la fecha de finalizacion es superior a la fecha de inicio
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */
 	comprobar_end_date_project_SEARCH() {
 
 		if (!(this.validaciones.format('end_date_project', ''))) {
@@ -689,9 +700,15 @@ class project extends EntidadAbstracta {
 		return true;
 	}
 
+	/**
+	 * Max 60 caracteres
+	 * Permitidos alfabéticos, acentos, ñ y espacios
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */
 	comprobar_responsable_project_SEARCH() {
 
-		if (!(this.validaciones.max_size('responsable_project', 20))) {
+		if (!(this.validaciones.max_size('responsable_project', 60))) {
 			this.mostrar_error_campo('responsable_project', 'responsable_project_max_size_KO');
 			//return false;
 			return 'responsable_project_max_size_KO';
@@ -706,9 +723,15 @@ class project extends EntidadAbstracta {
 
 	}
 
+	/**
+	 * Max 100 caracteres
+	 * Permitidos alfabéticos, acentos, ñ y espacios
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */
 	comprobar_organization_project_SEARCH() {
 
-		if (!(this.validaciones.max_size('organization_project', 20))) {
+		if (!(this.validaciones.max_size('organization_project', 100))) {
 			this.mostrar_error_campo('organization_project', 'organization_project_max_size_KO');
 			//return false;
 			return 'organization_project_max_size_KO';
@@ -723,14 +746,20 @@ class project extends EntidadAbstracta {
 
 	}
 
+	/**
+	 * Max 500 caracteres
+	 * Permitido cualquier caracter ASCII
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */
 	comprobar_description_project_SEARCH() {
 
-		if (!(this.validaciones.max_size('description_project', 20))) {
+		if (!(this.validaciones.max_size('description_project', 500))) {
 			this.mostrar_error_campo('description_project', 'description_project_max_size_KO');
 			//return false;
 			return 'description_project_max_size_KO';
 		}
-		if (!(this.validaciones.format('description_project', '^[a-zA-Z0-9.@_]{0,20}'))) {
+		if (!(this.validaciones.format('description_project', '^[^]*$'))) {
 			this.mostrar_error_campo('description_project', 'description_project_format_KO');
 			//return false;
 			return 'description_project_format_KO';
@@ -740,14 +769,21 @@ class project extends EntidadAbstracta {
 
 	}
 
+	/**
+	 * Max 100 caracteres
+	 * Permitidos alfabéticos y un punto para el formato
+	 * Prohibido los espacios, acentos ni ñ (y espacio con punto)
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */
 	comprobar_file_project_SEARCH() {
 
-		if (!(this.validaciones.max_size('file_project', 20))) {
+		if (!(this.validaciones.max_size('file_project', 100))) {
 			this.mostrar_error_campo('file_project', 'file_project_max_size_KO');
 			//return false;
 			return 'file_project_max_size_KO';
 		}
-		if (!(this.validaciones.format('file_project', '[A-Z]+${,20}'))) {
+		if (!(this.validaciones.format('file_project', '[A-Za-z.]*$'))) {
 			this.mostrar_error_campo('file_project', 'file_project_format_KO');
 			//return false;
 			return 'file_project_format_KO';
@@ -756,15 +792,21 @@ class project extends EntidadAbstracta {
 		return true;
 	}
 
-	//max 50 y permite alfabeticos, signos de puntuacion ñ y espacios, no se permiten los acentos
+	/**
+	 * Max 50 caracteres
+	 * Permitidos alfabéticos, signos de puntuacion, ñ y espacios
+	 * Prohibidos los acentos
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */
 	comprobar_code_project_SEARCH() {
 
-		if (!(this.validaciones.max_size('code_project', 20))) {
+		if (!(this.validaciones.max_size('code_project', 50))) {
 			this.mostrar_error_campo('code_project', 'code_project_max_size_KO');
 			//return false;
 			return 'code_project_max_size_KO';
 		}
-		if (!(this.validaciones.format('code_project', '^[a-zA-Z0-9.@_]{0,20}'))) {
+		if (!(this.validaciones.format('code_project', `^[A-Za-zñÑ¿¡!"#$%&'()*+,./:;<=>?@\[\\\]^_\`{|}~-]*$`))) {
 			this.mostrar_error_campo('code_project', 'code_project_format_KO');
 			//return false;
 			return 'code_project_format_KO';
@@ -775,7 +817,13 @@ class project extends EntidadAbstracta {
 	}
 
 
-	//max 15 y solo se admiten alfabeticos, ñ y signos de puntuacion, prohibido espacios y acentos 
+	/**
+	 * Max 15 caracteres
+	 * Permitidos alfabéticos, signos de puntuación y ñ
+	 * Prohibido acentos y espacios
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */
 	comprobar_acronym_project_SEARCH() {
 
 		if (!(this.validaciones.max_size('acronym_project', 15))) {
@@ -793,6 +841,13 @@ class project extends EntidadAbstracta {
 
 	}
 
+
+	/**
+	 * Max 11 caracteres
+	 * Permitidos solo dígitos
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */
 	comprobar_id_sampling_methodology_SEARCH() {
 
 		if (!(this.validaciones.max_size('id_sampling_methodology', 20))) {
@@ -843,16 +898,19 @@ class project extends EntidadAbstracta {
 			if (valoratributo == '') {
 				return "no hay fichero";
 			}
+
 			let texto = valoratributo;
-			texto += `<a id="link_file_analysis_preparation" href="http://193.147.87.202/ET2/filesuploaded/files_file_project/`;
+			texto += `<a id="link_file_project`;
+			texto += `_`;
+			texto += valoratributo; //Para evitar ids duplicados
+			texto += `" href="http://193.147.87.202/ET2/filesuploaded/files_file_project/`;
 			texto += valoratributo;
 			texto += `"><img src="./iconos/FILE.png" /></a>`;
-
 			return texto;
 
 		}
 
-		if (atributo == 'start_date_project') {
+		if (atributo == 'start_date_project' || atributo == 'end_date_project') {
 
 			let fech = valoratributo.split('-');
 			let fechaformateada = fech[2] + '/' + fech[1] + '/' + fech[0];
@@ -864,6 +922,11 @@ class project extends EntidadAbstracta {
 
 	/*
 		metodo para validaciones especiales de atributos en los formularios
+
+		Modificado para que pueda realizar las siguientes acciones:
+		-	Verificar si la fecha es válida independientemente de que sea start_date_project o end_date_project
+		-	Verificar si la fecha de end_date_project sea superior o igual a la de start
+		-	Si se obtiene el atributo y su valor es nulo/undefined, devuelve true directamente (para las pruebas de las definiciones)
 	*/
 
 	validacionesespeciales(atributo1, atributo2, prueba) {
@@ -884,18 +947,18 @@ class project extends EntidadAbstracta {
 		}
 		if (atributo1 == 'start_date_project' && atributo2 == 'end_date_project') {
 			if (prueba == 'fechasuperior') {
-				if(document.getElementById(atributo1.value)!= null || document.getElementById(atributo2.value)!= null){
+				if (document.getElementById(atributo1.value) != null || document.getElementById(atributo2.value) != null) {
 					let fecha1 = document.getElementById(atributo1).value;
 					let fecha2 = document.getElementById(atributo2).value;
 					let fechaf1 = fecha1.split("/");
 					let fechaf2 = fecha2.split("/");
-					let dateStart = new Date(fechaf1[2], fechaf1[1]-1 ,fechaf1[0]);
+					let dateStart = new Date(fechaf1[2], fechaf1[1] - 1, fechaf1[0]);
 					console.log(dateStart);
-					let dateEnd = new Date(fechaf2[2], fechaf2[1]-1, fechaf2[0]);
+					let dateEnd = new Date(fechaf2[2], fechaf2[1] - 1, fechaf2[0]);
 					console.log(dateEnd);
 					if (dateEnd < dateStart) return false;
 					return true;
-				}else return true;
+				} else return true;
 
 			}
 		}

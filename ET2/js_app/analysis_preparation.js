@@ -222,14 +222,25 @@ class analysis_preparation extends EntidadAbstracta {
 	/*
 	comprobacion campos ADD, EDIT
 
-	No se añade comprobaciones para id_analysis_preparation debido a que este valor es autoincremental
 	*/
 
+	/**
+	 * Es un valor incremental por lo tanto no se necesita validar al ser generado por el propio backend
+	 * 
+	 * @returns true 
+	 */
 	comporbar_id_analysis_preparation() {
-		//Al ser autoincremental no se realizan cambios
 		return true;
 	}
 
+
+	/**
+	 * Minimo 8 y max 100 caracteres
+	 * Se permiten caracteres alfabeticos y espacios
+	 * No permite los acentos ni la ñ
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */
 	comprobar_name_analysis_preparation() {
 
 		if (!(this.validaciones.min_size('name_analysis_preparation', 8))) {
@@ -249,6 +260,13 @@ class analysis_preparation extends EntidadAbstracta {
 
 	}
 
+	/**
+	 * Minimo 80 y max 5000 caracteres
+	 * Se permiten caracteres alfabeticos y espacios
+	 * No permite los acentos ni la ñ
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */
 	comprobar_description_analysis_preparation() {
 
 		if (!(this.validaciones.min_size('description_analysis_preparation', 80))) {
@@ -270,6 +288,12 @@ class analysis_preparation extends EntidadAbstracta {
 		return true;
 	}
 
+	/**
+	 * Minimo 6 y max 200 caracteres
+	 * Se permiten caracteres alfabeticos, espacios, acentos, ñ y signos de puntuacion
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */	
 	comprobar_bib_analysis_preparation() {
 
 		if (!(this.validaciones.min_size('bib_analysis_preparation', 6))) {
@@ -291,6 +315,15 @@ class analysis_preparation extends EntidadAbstracta {
 		return true;
 	}
 
+	/**
+	 * Minimo 7 y max 100 caracteres
+	 * Se permiten caracteres alfabeticos y un putno para el formato de archivo
+	 * No permite los acentos, los espacios y la ñ
+	 * El tamaño de fichero debe de ser menor de 2000000 bytes (20 MB)
+	 * Solo se permiten pdfs, .doc y docx
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */
 	comprobar_nuevo_file_analysis_preparation() {
 
 		if (document.getElementById('nuevo_file_analysis_preparation').files.length == 0) {
@@ -353,10 +386,14 @@ class analysis_preparation extends EntidadAbstracta {
 
 	/*
 	comprobacion campos SEARCH
-
-	Para las operaciones sí que se debe de comprobar id_analysis_preparation
 	*/
 
+	/**
+	 * Max 11 caracteres
+	 * Solo se permiten digitos
+	 * 
+	 * @returns true si cumple todas las validaciones y false en caso contrario
+	 */
 	comprobar_id_analysis_preparation_SEARCH() {
 
 		if (!(this.validaciones.max_size('id_analysis_preparation', 11))) {
@@ -374,6 +411,13 @@ class analysis_preparation extends EntidadAbstracta {
 
 	}
 
+	/**
+	 * Max 100 caracteres
+	 * Se permiten caracteres alfabeticos y espacios
+	 * No permite los acentos ni la ñ
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */	
 	comprobar_name_analysis_preparation_SEARCH() {
 
 		if (!(this.validaciones.max_size('name_analysis_preparation', 100))) {
@@ -391,6 +435,13 @@ class analysis_preparation extends EntidadAbstracta {
 
 	}
 
+	/**
+	 * Max 5000 caracteres
+	 * Se permiten caracteres alfabeticos y espacios
+	 * No permite los acentos ni la ñ
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */
 	comprobar_description_analysis_preparation_SEARCH() {
 
 		if (!(this.validaciones.max_size('description_analysis_preparation', 5000))) {
@@ -407,6 +458,12 @@ class analysis_preparation extends EntidadAbstracta {
 		return true;
 	}
 
+	/**
+	 * Max 200 caracteres
+	 * Se permiten caracteres alfabeticos, espacios, acentos, ñ y signos de puntuacion
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */	
 	comprobar_bib_analysis_preparation_SEARCH() {
 
 		if (!(this.validaciones.max_size('bib_analysis_preparation', 200))) {
@@ -423,6 +480,15 @@ class analysis_preparation extends EntidadAbstracta {
 		return true;
 	}
 
+	/**
+	 * Max 100 caracteres
+	 * Se permiten caracteres alfabeticos y un putno para el formato de archivo
+	 * No permite los acentos, los espacios y la ñ
+	 * El tamaño de fichero debe de ser menor de 2000000 bytes (20 MB)
+	 * Solo se permiten pdfs, .doc y docx
+	 * 
+	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
+	 */
 	comprobar_file_analysis_preparation_SEARCH() {
 
 		if (!(this.validaciones.max_size('file_analysis_preparation', 20))) {
