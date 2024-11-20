@@ -52,44 +52,51 @@ let textos_ES = {
 	"label_acronym_project":"Acronimo de proyecto",
 	"label_id_sampling_methodology":"ID de metodologia de muestreo",
 
-	// errores validaciones formulario
-	// ADD/EDIT
-	// nombre_persona
-	"nombre_persona_min_size_KO": "Nombre demasiado corto. Debe tener mas de 4 caracteres alfabéticos",
-	"nombre_persona_max_size_KO": "Nombre demasiado largo. Debe tener menos de 20 caracteres alfabéticos",
-	"nombre_persona_format_KO": "Nombre no correcto. Solo se permiten alfabéticos",
+	// errores del back
+	//atributo forzado a nulo en EDIT o DELETE
+    'id_project_es_nulo_KO'             : 'Se ha producido un error grave,asegurese de que el campo Identificador no este vacio',
+    
+    //atributo forzado a nulo en ADD o EDIT
+    'name_project_es_nulo_KO'           : 'Se ha producido un error grave,asegurese de que el campo Nombre Proyecto no este vacio',
+    'start_date_project_es_nulo_KO'     : 'Se ha producido un error grave,asegurese de que el campo Fecha de Inicio no este vacio',
+    'end_date_project_es_nulo_KO'       : 'Se ha producido un error grave,asegurese de que el campo Fecha de Fin no este vacio',//NOTA, las fechas se envian con offsets, saltan errores no relacionados con la ET2 si se fuerza a enviar 1 solo caracter,pero se envia 
+    'responsable_project_es_nulo_KO'    : 'Se ha producido un error grave,asegurese de que el campo Responsable no este vacio',//NOTA, las fechas se envian con offsets, saltan errores no relacionados con la ET2 si se fuerza a enviar 1 solo caracter,pero se envia 
+    'organization_project_es_nulo_KO'   : 'Se ha producido un error grave,asegurese de que el campo Organizacion no este vacio',
+    'description_project_es_nulo_KO'    : 'Se ha producido un error grave,asegurese de que el campo Descripcion no este vacio',
+    'code_project_es_nulo_KO'           : 'Se ha producido un error grave,asegurese de que el campo Codigo Proyecto no este vacio',
+    'acronym_project_es_nulo_KO'        : 'Se ha producido un error grave,asegurese de que el campo Acronimo Proyecto no este vacio',
+    'id_sampling_methodology_es_nulo_KO': 'Se ha producido un error grave,asegurese de que el campo Id Metodologia de Sampleo no este vacio',
 
-	// apellidos persona
-	"apellidos_persona_min_size_KO": "Apellidos demasiado corto. Debe tener mas de 4 caracteres alfabéticos o espacios",
-	"apellidos_persona_max_size_KO": "Apellidos demasiado largo. Debe tener menos de 20 caracteres alfabéticos o espacios",
-	"apellidos_persona_format_KO": "Apellidos no correcto. Solo se permiten alfabéticos y espacios",
+    //tipo incorrecto de fichero en ADD o EDIT
+    'ERROR_UPLOAD_file_project_KO'      : 'Se ha producido un error grave,asegurese de que el archivo subido sea del tipo correcto (.pdf,.doc o .docx)',
+    
+    /*
+    A pesar del nombre, no es un error al forzar el atributo a nulo en ADD o EDIT, el back acepta ficheros nulos en ambas entidades.
+    Este error ocurre al intentar editar una tupla de project que este guardada sin file_project
+    */
+    'file_project_es_nulo_KO'           : 'Se ha producido un error critico, los datos no son editables', 
+   
+    //analysis_preparation
+   
+    //atributo forzado a nulo en EDIT o DELETE
+    'id_analysis_preparation_es_nulo_KO'            : 'Se ha producido un error grave,asegurese de que el campo Identificador no este vacio',
 
-	//fecha nacimiento persona
-	"fechaNacimiento_persona_format_KO": "Fecha no correcta. Debe tener el formato dd/mm/aaaa",
-	"fechaNacimiento_persona_valid_KO": "Fecha no válida. La fecha debe existir",
+    //atributo forzado a nulo en ADD o EDIT
+    'name_analysis_preparation_es_nulo_KO'          : 'Se ha producido un error grave,asegurese de que el campo Nombre Analisis no este vacio',
+    'description_analysis_preparation_es_nulo_KO'   : 'Se ha producido un error grave,asegurese de que el campo Descripcion no este vacio',
+    'bib_analysis_preparation_es_nulo_KO'           : 'Se ha producido un error grave,asegurese de que el campo Bibliografia no este vacio',
+    
+    //tipo incorrecto de fichero en ADD o EDIT
+    'ERROR_UPLOAD_file_analysis_preparation_KO'     : 'Se ha producido un error grave,asegurese de que el archivo subido sea del tipo correcto (.pdf,.doc o .docx)',
+    
+    //no se si existe este error, existe el equivalente en project pero no parece que exista para analysis_preparation, no salta en los testeos
+    'file_analysis_preparation_es_nulo_KO'          : 'Se ha producido un error critico, los datos no son editables', 
 
-	// email persona
-	"email_persona_min_size_KO": "",
-	"email_persona_max_size_KO": "",
-	"email_persona_format_KO": "",
+    /*OTROS*/
 
-	// nuevo foto persona	
-	"nuevo_foto_persona_empty_KO": "El fichero no existe. Debe subir una foto",
-	"nuevo_foto_persona_max_size_file_KO": "",
-	"nuevo_foto_persona_type_file_KO": "",
-	"nuevo_foto_persona_format_name_file_KO": "",
-	"nuevo_foto_persona_min_size_KO": "",
-	"nuevo_foto_persona_max_size_KO": "",
-
-	//SEARCH
-	// foto persona
-	"foto_persona_max_size_KO": "",
-	"foto_persona_format_KO": "",
-
-	//errores acciones
-	"RECORDSET_VACIO": "No hay coincidencia para la búsqueda",
-	"dni_es_nulo_KO": "El dni no puede ser vacio",
-
-	"admin_no_se_puede_modificar_KO": "El admin no se puede modificar",
-
+    //Fallo de SQL, posible forzarlo con datos validos: En description_project se acepta cualquier ascii, poner ' dara error ya que el back intenta hacer INSERT/UPDATE [....] description_project=''', fallando
+    'SQL_KO'            : 'Se ha producido un error, revise que los datos son correctos. Si el error persiste intentelo de nuevo mas tarde',
+    
+    //SEARCH no encuentra tuplas
+    'RECORDSET_VACIO'   : 'No se han encontrado datos'
 }

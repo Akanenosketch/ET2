@@ -134,6 +134,10 @@ class analysis_preparation extends EntidadAbstracta {
 		// relleno los valores de los atributos
 		this.rellenarvaloresform(parametros);
 
+		// eliminamos los campos innecesarios
+		document.getElementById('nuevo_file_analysis_preparation').remove();
+		document.getElementById('label_nuevo_file_analysis_preparation').remove();
+
 		// desactivo los campos necesarios
 		document.getElementById('file_analysis_preparation').setAttribute('readonly', true);
 		document.getElementById('id_analysis_preparation').setAttribute('readonly', true);
