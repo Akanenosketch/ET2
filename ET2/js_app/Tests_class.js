@@ -1,12 +1,12 @@
-class test{
+class test {
 
-    constructor(){
-        
+    constructor() {
+
         // mostrar boton de test una vez creada la clase de entidad
         this.mostrar_boton_test();
     }
 
-    test_run(){
+    test_run() {
 
         document.getElementById('div_IU_test').style.display = 'block';
         document.getElementById('resultadodef').innerHTML = '';
@@ -19,45 +19,44 @@ class test{
         this.resolve_def_test();
         this.resolve_pruebas();
 
-        this.array_def = eval('def_tests_'+this.entidad);
-        this.array_pruebas = eval('pruebas_'+this.entidad);
-        this.array_pruebas_file = eval('pruebas_file_'+this.entidad);
+        this.array_def = eval('def_tests_' + this.entidad);
+        this.array_pruebas = eval('pruebas_' + this.entidad);
+        this.array_pruebas_file = eval('pruebas_file_' + this.entidad);
 
         this.test_entidad();
         this.test_entidad_files();
-        
-        
+
+
 
     }
 
-    resolve_def_test(){
+    resolve_def_test() {
 
         this.verificarDefTest();
 
     }
 
-    resolve_pruebas(){
+    resolve_pruebas() {
 
         this.verificarPruebas();
         this.verificarPruebas_file();
 
     }
 
-    test_entidad(){
-
-        //cargo formulario 
-        this.cargar_formulario_html();
-
-        // cargo el boton pq sino da un error en la funcion de dibujado del mensaje de error
-        let botonsumit = document.createElement('input');
-        botonsumit.id = 'submit_button';
-        document.getElementById('IU_form').append(botonsumit);
+    test_entidad() {
 
         // construyo el titulo de la tabla de muestra
-        let salidatest = `<tr><th>NumDefTest</th><th>NumPrueba</th><th>campo</th><th>Prueba</th><th>Accion</th><th>valor</th><th>Respuesta Test</th><th>Respuesta esperada</th><th>Resultado</th></tr>`
+        let salidatest = `<tr><th class="numTest">NumDefTest</th><th class="numPrueba">NumPrueba</th><th class="campo">campo</th><thclass="prueba">Prueba</th><th class="accion">Accion</th><th class="valor">valor</th><th class="respuestaTest">Respuesta Test</th><th class="respuestaEsperada">Respuesta esperada</th><th class="resultado">Resultado</th></tr>`
 
 
-        for (let i=0;i<this.array_pruebas.length;i++){
+        for (let i = 0; i < this.array_pruebas.length; i++) {
+
+            //cargo formulario limpio
+            this.cargar_formulario_html();
+            // cargo el boton pq sino da un error en la funcion de dibujado del mensaje de error
+            let botonsumit = document.createElement('input');
+            botonsumit.id = 'submit_button';
+            document.getElementById('IU_form').append(botonsumit);
 
             var campotest = this.array_pruebas[i][1];
             var numdeftest = this.array_pruebas[i][2];
@@ -70,30 +69,30 @@ class test{
             var def = this.devolver_def(numdeftest);
 
             // creo objeto html sino cargo el formulario (para crear cada elemento dinamicamente dentro del form)           
-            
+
             //meto valor en objeto (esto depende del tipo de elemento de formulario)
-            document.getElementById(campotest).value = valortest; 
+            document.getElementById(campotest).value = valortest;
 
             //llamo a la funcion de validacion del campo según su accion
-            if (acciontest == 'SEARCH'){
-                var resultadotest = eval('this.comprobar_'+campotest+'_SEARCH()')
+            if (acciontest == 'SEARCH') {
+                var resultadotest = eval('this.comprobar_' + campotest + '_SEARCH()')
             }
-            else{
+            else {
                 //por si hay que distinguir la accion en las comprobaciones creo el atributo del objeto con la accion
                 this.accion = acciontest;
-                var resultadotest = eval('this.comprobar_'+campotest+'()');
+                var resultadotest = eval('this.comprobar_' + campotest + '()');
             }
 
             // compruebo si el resultado del test y la respuesta esperada es la misma
-            if (respuestatest == resultadotest){
+            if (respuestatest == resultadotest) {
                 var resultadoestetest = 'CORRECTO';
             }
-            else{
+            else {
                 var resultadoestetest = 'INCORRECTO';
             }
 
             // construyo la fila de salida de la prueba realizada
-            var lineasalida = `<tr><td>`+numdeftest+`</td><td>`+numprueba+`</td><td>`+campotest+`</td><td>`+def[3]+`</td><td>`+acciontest+`</td><td>`+valortest+`</td><td>`+resultadotest+`</td><td>`+respuestatest+'('+this.traduccion(respuestatest)+')'+`</td><td>`+resultadoestetest+`</td></tr>`
+            var lineasalida = `<tr><td>`+numdeftest+`</td><td>`+numprueba+`</td><td>`+campotest+`</td><td>`+def[3]+`</td><td>`+acciontest+`</td><td>`+valortest+`</td><td>`+resultadotest+`</td><td>`+respuestatest+'('+this.traduccion(respuestatest)+')'+`</td><td>`+resultadoestetest+`</td></tr>`;
             salidatest += lineasalida;
 
         }
@@ -107,18 +106,18 @@ class test{
     /*Función para obtener el valor de la cookie*/
     getCookie(name) {
 
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+    
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+    
+        return null;
 
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
     }
-
-    return null;
-
-}
 
     traduccion(codigo){
         var lang = this.getCookie('lang');
@@ -137,7 +136,7 @@ class test{
         return traduccion[codigo];
     }
 
-    test_entidad_files(){
+    test_entidad_files() {
 
         //cargo formulario 
         this.cargar_formulario_html();
@@ -148,7 +147,7 @@ class test{
 
         let salidatest = `<tr><th>NumDefTest</th><th>NumPrueba</th><th>Campo</th><th>Prueba</th><th>Accion</th><th>valor</th><th>Respuesta Test</th><th>Respuesta esperada</th><th>Resultado</th></tr>`
 
-        for (let i=0;i<this.array_pruebas_file.length;i++){
+        for (let i = 0; i < this.array_pruebas_file.length; i++) {
 
             var campotest = this.array_pruebas_file[i][1];
             var numdeftest = this.array_pruebas_file[i][2];
@@ -160,11 +159,11 @@ class test{
 
 
             // creo objeto html sino cargo formulario           
-            
+
             //construyo objeto file y relleno valor para prueba
-            if (valortest.length != 0){
-                var file = new File([new ArrayBuffer(valortest[2])], valortest[0],{type:valortest[1], webkitRelativePath:"C:\\fakepath\\"+valortest[0]});
-                
+            if (valortest.length != 0) {
+                var file = new File([new ArrayBuffer(valortest[2])], valortest[0], { type: valortest[1], webkitRelativePath: "C:\\fakepath\\" + valortest[0] });
+
                 // Create a data transfer object. Similar to what you get from a `drop` event as `event.dataTransfer`
                 const dataTransfer = new DataTransfer();
 
@@ -179,41 +178,41 @@ class test{
             }
 
             //llamo a funcion
-            if (acciontest == 'SEARCH'){
-                var resultadotest = eval('this.comprobar_'+campotest+'_SEARCH()')
+            if (acciontest == 'SEARCH') {
+                var resultadotest = eval('this.comprobar_' + campotest + '_SEARCH()')
             }
-            else{
+            else {
                 //por si hay que distinguir la accion en las comprobaciones creo el atributo del objeto con la accion
                 this.accion = acciontest;
-                var resultadotest = eval('this.comprobar_'+campotest+'()');
+                var resultadotest = eval('this.comprobar_' + campotest + '()');
             }
 
             // compruebo si el resultado del test y la respuesta esperada es la misma
-            if (respuestatest == resultadotest){
+            if (respuestatest == resultadotest) {
                 var resultadoestetest = 'CORRECTO';
             }
-            else{
+            else {
                 var resultadoestetest = 'INCORRECTO';
             }
 
-            var lineasalida = `<tr><td>`+numdeftest+`</td><td>`+numprueba+`</td><td>`+campotest+`</td><td>`+clasedetest+`</td><td>`+acciontest+`</td><td>`+valortest+`</td><td>`+resultadotest+`</td><td>`+respuestatest+'('+this.traduccion(respuestatest)+')'+`</td><td>`+resultadoestetest+`</td></tr>`
+            var lineasalida = `<tr><td>` + numdeftest + `</td><td>` + numprueba + `</td><td>` + campotest + `</td><td>` + clasedetest + `</td><td>` + acciontest + `</td><td>` + valortest + `</td><td>` + resultadotest + `</td><td>` + respuestatest + '(' + this.traduccion(respuestatest) + ')' + `</td><td>` + resultadoestetest + `</td></tr>`
             salidatest += lineasalida;
-            
 
-            
+
+
         }
 
         // presento el resultado
         document.getElementById('salidaresultadosprueba').innerHTML += salidatest;
-        
+
         document.getElementById('resultadopruebas').style.display = 'block';
 
     }
 
-    devolver_def(num_def){
+    devolver_def(num_def) {
 
-        for (let i=0;i<this.array_def.length;i++){
-            if (this.array_def[i][2] == num_def){
+        for (let i = 0; i < this.array_def.length; i++) {
+            if (this.array_def[i][2] == num_def) {
                 return this.array_def[i];
             }
         }
@@ -221,96 +220,94 @@ class test{
 
 
 
-    verificarDefTest(){
+    verificarDefTest() {
 
-        let probe_def = eval("def_tests_"+this.entidad);
+        let probe_def = eval("def_tests_" + this.entidad);
         let filacorrecta = true;
 
         let salidatabla = "<tr><th>Entidad</><th>Campo</th><th>Num. DefTest</th><th colspan='7'>Datos</th>";
         let salidalinea = '';
-        
+
         probe_def.forEach(element => {
             salidalinea = "<tr>";
-            salidalinea += '<td>'+element[0]+'</td>';
-            salidalinea += '<td>'+element[1]+'</td>';
-            salidalinea += '<td>'+element[2]+'</td>';
+            salidalinea += '<td>' + element[0] + '</td>';
+            salidalinea += '<td>' + element[1] + '</td>';
+            salidalinea += '<td>' + element[2] + '</td>';
             filacorrecta = true;
-            for (let i=0;i<7;i++){
-                salidalinea += '<td>'+typeof(element[i])+'</td>';
+            for (let i = 0; i < 7; i++) {
+                salidalinea += '<td>' + typeof (element[i]) + '</td>';
             }
             if (
-                (typeof(element[0])=='string')  &&
-                (typeof(element[1])=='string')  &&
-                (typeof(element[2])=='number')  &&
-                (typeof(element[3])=='string')  &&
-                (typeof(element[4])=='string') &&
-                ((typeof(element[5])=='string') || (typeof(element[5])=='boolean')) &&
-                (typeof(element[6])=='string')
-                ){
-                    salidalinea += '<td>CORRECTA</td>';
-                }
-            else
-                {
-                    salidalinea += '<td>ERROR</td>';
-                    filacorrecta = false;
-                }
+                (typeof (element[0]) == 'string') &&
+                (typeof (element[1]) == 'string') &&
+                (typeof (element[2]) == 'number') &&
+                (typeof (element[3]) == 'string') &&
+                (typeof (element[4]) == 'string') &&
+                ((typeof (element[5]) == 'string') || (typeof (element[5]) == 'boolean')) &&
+                (typeof (element[6]) == 'string')
+            ) {
+                salidalinea += '<td>CORRECTA</td>';
+            }
+            else {
+                salidalinea += '<td>ERROR</td>';
+                filacorrecta = false;
+            }
             salidalinea += "</tr>";
             salidatabla += salidalinea;
         });
-    
+
         document.getElementById('tablaresultadostest').innerHTML += salidatabla;
         document.getElementById('res_estructura_tests').className = 'res_estructura_tests';
 
-    
-        if (filacorrecta){
+
+        if (filacorrecta) {
             document.getElementById('resultadodef').className = 'resultadodef';
         }
-    
+
         document.getElementById('contenidoTests').style.display = 'block';
-    
+
     }
 
-    verificarPruebas(){
+    verificarPruebas() {
 
-        let probe_def = eval("pruebas_"+this.entidad);
+        let probe_def = eval("pruebas_" + this.entidad);
         let filacorrecta = true;
 
         let salidatabla = "<tr><th>Entidad</><th>Campo</th><th>Num.Def</th><th>Num.Prob</th><th colspan='6'>Datos</th>";
         let salidalinea = '';
-        
+
         probe_def.forEach(element => {
             salidalinea = "<tr>";
-            salidalinea += '<td>'+element[0]+'</td>';
-            salidalinea += '<td>'+element[1]+'</td>';
-            salidalinea += '<td>'+element[2]+'</td>';
-            salidalinea += '<td>'+element[3]+'</td>';
+            salidalinea += '<td>' + element[0] + '</td>';
+            salidalinea += '<td>' + element[1] + '</td>';
+            salidalinea += '<td>' + element[2] + '</td>';
+            salidalinea += '<td>' + element[3] + '</td>';
             filacorrecta = true;
-            for (let i=0;i<7;i++){
-                salidalinea += '<td>'+typeof(element[i])+'</td>';
+            for (let i = 0; i < 7; i++) {
+                salidalinea += '<td>' + typeof (element[i]) + '</td>';
             }
             if (
-                (typeof(element[0])=='string')  &&
-                (typeof(element[1])=='string')  &&
-                (typeof(element[2])=='number')  &&
-                (typeof(element[3])=='number')  &&
-                (typeof(element[4])=='string')  &&
-                (typeof(element[5])=='string')  &&
-                ((typeof(element[6])=='string') || (typeof(element[6])=='boolean'))
-                ){
-                    salidalinea += '<td>CORRECTA</td>';
-                }
-            else
-                {
-                    salidalinea += '<td>ERROR</td>';
-                    filacorrecta = false;
-                }
+                (typeof (element[0]) == 'string') &&
+                (typeof (element[1]) == 'string') &&
+                (typeof (element[2]) == 'number') &&
+                (typeof (element[3]) == 'number') &&
+                (typeof (element[4]) == 'string') &&
+                (typeof (element[5]) == 'string') &&
+                ((typeof (element[6]) == 'string') || (typeof (element[6]) == 'boolean'))
+            ) {
+                salidalinea += '<td>CORRECTA</td>';
+            }
+            else {
+                salidalinea += '<td>ERROR</td>';
+                filacorrecta = false;
+            }
             salidalinea += "</tr>";
             salidatabla += salidalinea;
         });
 
         document.getElementById('resultadodef').className = 'resultadodef';
 
-        if (filacorrecta){
+        if (filacorrecta) {
             document.getElementById('res_estructura_pruebas').className = 'res_estructura_pruebas';
         }
 
@@ -318,49 +315,48 @@ class test{
 
     }
 
-    verificarPruebas_file(){
+    verificarPruebas_file() {
 
-        let probe_def = eval("pruebas_file_"+this.entidad);
+        let probe_def = eval("pruebas_file_" + this.entidad);
         let filacorrecta = true;
 
         let salidatabla = "<tr><th>Entidad</><th>Campo</th><th>Num.Def</th><th>Num.Prob</th><th colspan='8'>Datos</th>";
         let salidalinea = '';
-        
+
         probe_def.forEach(element => {
             salidalinea = "<tr>";
-            salidalinea += '<td>'+element[0]+'</td>';
-            salidalinea += '<td>'+element[1]+'</td>';
-            salidalinea += '<td>'+element[2]+'</td>';
-            salidalinea += '<td>'+element[3]+'</td>';
+            salidalinea += '<td>' + element[0] + '</td>';
+            salidalinea += '<td>' + element[1] + '</td>';
+            salidalinea += '<td>' + element[2] + '</td>';
+            salidalinea += '<td>' + element[3] + '</td>';
             filacorrecta = true;
-            for (let i=0;i<8;i++){
-                salidalinea += '<td>'+typeof(element[i])+'</td>';
+            for (let i = 0; i < 8; i++) {
+                salidalinea += '<td>' + typeof (element[i]) + '</td>';
             }
             if (
-                (typeof(element[0])=='string')  &&
-                (typeof(element[1])=='string')  &&
-                (typeof(element[2])=='number')  &&
-                (typeof(element[3])=='number')  &&
-                (typeof(element[4])=='string')  &&
-                (typeof(element[5])=='string')  &&
-                (typeof(element[6])== 'object')  &&
-                ((typeof(element[7])=='string') || (typeof(element[7])=='boolean'))
-                ){
-                    salidalinea += '<td>CORRECTA</td>';
-                }
-            else
-                {
-                    salidalinea += '<td>ERROR</td>';
-                    filacorrecta = false;
-                }
+                (typeof (element[0]) == 'string') &&
+                (typeof (element[1]) == 'string') &&
+                (typeof (element[2]) == 'number') &&
+                (typeof (element[3]) == 'number') &&
+                (typeof (element[4]) == 'string') &&
+                (typeof (element[5]) == 'string') &&
+                (typeof (element[6]) == 'object') &&
+                ((typeof (element[7]) == 'string') || (typeof (element[7]) == 'boolean'))
+            ) {
+                salidalinea += '<td>CORRECTA</td>';
+            }
+            else {
+                salidalinea += '<td>ERROR</td>';
+                filacorrecta = false;
+            }
             salidalinea += "</tr>";
             salidatabla += salidalinea;
         });
 
         document.getElementById('tablaresultadosprueba').innerHTML += salidatabla;
 
-        if (filacorrecta){
-        //    document.getElementById('resultadoprueba').innerHTML = 'formato correcto en las pruebas';
+        if (filacorrecta) {
+            //    document.getElementById('resultadoprueba').innerHTML = 'formato correcto en las pruebas';
         }
 
         document.getElementById('contenidoPruebas').style.display = 'block';

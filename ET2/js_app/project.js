@@ -213,15 +213,6 @@ class project extends EntidadAbstracta {
 
 		this.rellenarvaloresform(parametros);
 
-		/*
-		cambio presentacion fecha a formato dd/mm/aaaa directamente en codigo o reutilizando el metodo de cambio de presentacion en tabla
-		*/
-		/*
-		let fech = parametros.start_date_project.split('-');
-		let fechaformateada = fech[2] + '/' + fech[1] + '/' + fech[0];
-		document.getElementById('start_date_project').value = fechaformateada;
-		*/
-
 		document.getElementById('start_date_project').value = this.cambiardatosespecialestabla('start_date_project', parametros.start_date_project);
 		document.getElementById('end_date_project').value = this.cambiardatosespecialestabla('end_date_project', parametros.end_date_project);
 
