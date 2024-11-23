@@ -26,7 +26,7 @@ class test {
         this.test_entidad();
         this.test_entidad_files();
 
-
+        setLang();
 
     }
 
@@ -46,7 +46,7 @@ class test {
     test_entidad() {
 
         // construyo el titulo de la tabla de muestra
-        let salidatest = `<tr><th class="numTest">NumDefTest</th><th class="numPrueba">NumPrueba</th><th class="campo">campo</th><thclass="prueba">Prueba</th><th class="accion">Accion</th><th class="valor">valor</th><th class="respuestaTest">Respuesta Test</th><th class="respuestaEsperada">Respuesta esperada</th><th class="resultado">Resultado</th></tr>`
+        let salidatest = `<tr><th class="numTest">NumDefTest</th><th class="numPrueba">NumPrueba</th><th class="campo">campo</th><th class="prueba">Prueba</th><th class="accion">Accion</th><th class="valor">valor</th><th class="respuestaTest">Respuesta Test</th><th class="respuestaEsperada">Respuesta esperada</th><th class="resultado">Resultado</th></tr>`
 
 
         for (let i = 0; i < this.array_pruebas.length; i++) {
@@ -273,7 +273,7 @@ class test {
         let probe_def = eval("pruebas_" + this.entidad);
         let filacorrecta = true;
 
-        let salidatabla = "<tr><th>Entidad</><th>Campo</th><th>Num.Def</th><th>Num.Prob</th><th colspan='6'>Datos</th>";
+        let salidatabla = "<tr><th class='entidad'>Entidad<th/><th class='campo'>Campo</th><th class='numDef'>Num.Def</th><th class='numTest'>Num.Prob</th><th class=info colspan='6'>Datos</th>";
         let salidalinea = '';
 
         probe_def.forEach(element => {
@@ -320,7 +320,7 @@ class test {
         let probe_def = eval("pruebas_file_" + this.entidad);
         let filacorrecta = true;
 
-        let salidatabla = "<tr><th>Entidad</><th>Campo</th><th>Num.Def</th><th>Num.Prob</th><th colspan='8'>Datos</th>";
+        let salidatabla = "<tr><th class='entidadFile'>Entidad</th><th class='campoFile'>Campo</th><th class='numDefFile'>Num.Def</th><th class='numTestFile'>Num.Prob</th><th class='infoFile' colspan='8'>Datos</th>";
         let salidalinea = '';
 
         probe_def.forEach(element => {

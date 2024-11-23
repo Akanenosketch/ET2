@@ -293,7 +293,7 @@ class analysis_preparation extends EntidadAbstracta {
 	 * Se permiten caracteres alfabeticos, espacios, acentos, ñ y signos de puntuacion
 	 * 
 	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
-	 */	
+	 */
 	comprobar_bib_analysis_preparation() {
 
 		if (!(this.validaciones.min_size('bib_analysis_preparation', 6))) {
@@ -396,16 +396,19 @@ class analysis_preparation extends EntidadAbstracta {
 	 */
 	comprobar_id_analysis_preparation_SEARCH() {
 
-		if (!(this.validaciones.max_size('id_analysis_preparation', 11))) {
-			this.mostrar_error_campo('id_analysis_preparation', 'id_analysis_preparation_max_size_KO');
-			//return false;
-			return 'id_analysis_preparation_max_size_KO'
+		if (!(document.getElementById('id_analysis_preparation').value == '')) { //Si el valor no es vacío se procede con las pruebas
+			if (!(this.validaciones.max_size('id_analysis_preparation', 11))) {
+				this.mostrar_error_campo('id_analysis_preparation', 'id_analysis_preparation_max_size_KO');
+				//return false;
+				return 'id_analysis_preparation_max_size_KO'
+			}
+			if (!(this.validaciones.format('id_analysis_preparation', '^[1-9][0-9]*$'))) {
+				this.mostrar_error_campo('id_analysis_preparation', 'id_analysis_preparation_format_KO');
+				//return false;
+				return 'id_analysis_preparation_format_KO'
+			}
 		}
-		if (!(this.validaciones.format('id_analysis_preparation', '[0-9]*$'))) {
-			this.mostrar_error_campo('id_analysis_preparation', 'id_analysis_preparation_format_KO');
-			//return false;
-			return 'id_analysis_preparation_format_KO'
-		}
+
 		this.mostrar_exito_campo('id_analysis_preparation');
 		return true;
 
@@ -417,22 +420,22 @@ class analysis_preparation extends EntidadAbstracta {
 	 * No permite los acentos ni la ñ
 	 * 
 	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
-	 */	
+	 */
 	comprobar_name_analysis_preparation_SEARCH() {
-
-		if (!(this.validaciones.max_size('name_analysis_preparation', 100))) {
-			this.mostrar_error_campo('name_analysis_preparation', 'name_analysis_preparation_max_size_KO');
-			//return false;
-			return 'name_analysis_preparation_max_size_KO'
+		if (!(document.getElementById('name_analysis_preparation').value == '')) {
+			if (!(this.validaciones.max_size('name_analysis_preparation', 100))) {
+				this.mostrar_error_campo('name_analysis_preparation', 'name_analysis_preparation_max_size_KO');
+				//return false;
+				return 'name_analysis_preparation_max_size_KO'
+			}
+			if (!(this.validaciones.format('name_analysis_preparation', '^[A-Za-z ]*$'))) {
+				this.mostrar_error_campo('name_analysis_preparation', 'name_analysis_preparation_format_KO');
+				//return false;
+				return 'name_analysis_preparation_format_KO'
+			}
+			this.mostrar_exito_campo('name_analysis_preparation');
+			return true;
 		}
-		if (!(this.validaciones.format('name_analysis_preparation', '[A-Za-z ]*$'))) {
-			this.mostrar_error_campo('name_analysis_preparation', 'name_analysis_preparation_format_KO');
-			//return false;
-			return 'name_analysis_preparation_format_KO'
-		}
-		this.mostrar_exito_campo('name_analysis_preparation');
-		return true;
-
 	}
 
 	/**
@@ -444,18 +447,20 @@ class analysis_preparation extends EntidadAbstracta {
 	 */
 	comprobar_description_analysis_preparation_SEARCH() {
 
-		if (!(this.validaciones.max_size('description_analysis_preparation', 5000))) {
-			this.mostrar_error_campo('description_analysis_preparation', 'description_analysis_preparation_max_size_KO');
-			//return false;
-			return 'description_analysis_preparation_max_size_KO'
+		if (!(document.getElementById('description_analysis_preparation').value == '')) {
+			if (!(this.validaciones.max_size('description_analysis_preparation', 5000))) {
+				this.mostrar_error_campo('description_analysis_preparation', 'description_analysis_preparation_max_size_KO');
+				//return false;
+				return 'description_analysis_preparation_max_size_KO'
+			}
+			if (!(this.validaciones.format('description_analysis_preparation', '^[A-Za-z ]*$'))) {
+				this.mostrar_error_campo('description_analysis_preparation', 'description_analysis_preparation_format_KO');
+				//return false;
+				return 'description_analysis_preparation_format_KO'
+			}
+			this.mostrar_exito_campo('description_analysis_preparation');
+			return true;
 		}
-		if (!(this.validaciones.format('description_analysis_preparation', '[A-Za-z ]*$'))) {
-			this.mostrar_error_campo('description_analysis_preparation', 'description_analysis_preparation_format_KO');
-			//return false;
-			return 'description_analysis_preparation_format_KO'
-		}
-		this.mostrar_exito_campo('description_analysis_preparation');
-		return true;
 	}
 
 	/**
@@ -463,21 +468,23 @@ class analysis_preparation extends EntidadAbstracta {
 	 * Se permiten caracteres alfabeticos, espacios, acentos, ñ y signos de puntuacion
 	 * 
 	 * @returns true si cumple todas validaciones, sino le devuelve el correspondiente el error
-	 */	
+	 */
 	comprobar_bib_analysis_preparation_SEARCH() {
 
-		if (!(this.validaciones.max_size('bib_analysis_preparation', 200))) {
-			this.mostrar_error_campo('bib_analysis_preparation', 'bib_analysis_preparation_max_size_KO');
-			//return false;
-			return 'bib_analysis_preparation_max_size_KO'
+		if (!(document.getElementById('bib_analysis_preparation').value == '')) {
+			if (!(this.validaciones.max_size('bib_analysis_preparation', 200))) {
+				this.mostrar_error_campo('bib_analysis_preparation', 'bib_analysis_preparation_max_size_KO');
+				//return false;
+				return 'bib_analysis_preparation_max_size_KO'
+			}
+			if (!(this.validaciones.format('bib_analysis_preparation', `^[A-Za-z áéíóúñÁÉÍÓÚÑ¿¡ !"#$%&'()*+,./:;<=>?@\[\\\]^_\`{|}~-]*$`))) {
+				this.mostrar_error_campo('bib_analysis_preparation', 'bib_analysis_preparation_format_KO');
+				//return false;
+				return 'bib_analysis_preparation_format_KO'
+			}
+			this.mostrar_exito_campo('bib_analysis_preparation');
+			return true;
 		}
-		if (!(this.validaciones.format('bib_analysis_preparation', `^[A-Za-z áéíóúñÁÉÍÓÚÑ¿¡ !"#$%&'()*+,./:;<=>?@\[\\\]^_\`{|}~-]*$`))) {
-			this.mostrar_error_campo('bib_analysis_preparation', 'bib_analysis_preparation_format_KO');
-			//return false;
-			return 'bib_analysis_preparation_format_KO'
-		}
-		this.mostrar_exito_campo('bib_analysis_preparation');
-		return true;
 	}
 
 	/**
@@ -491,18 +498,20 @@ class analysis_preparation extends EntidadAbstracta {
 	 */
 	comprobar_file_analysis_preparation_SEARCH() {
 
-		if (!(this.validaciones.max_size('file_analysis_preparation', 20))) {
-			this.mostrar_error_campo('file_analysis_preparation', 'file_analysis_preparation_max_size_KO');
-			//return false;
-			return 'file_analysis_preparation_max_size_KO';
+		if (!(document.getElementById('file_analysis_preparation').value == '')) {
+			if (!(this.validaciones.max_size('file_analysis_preparation', 20))) {
+				this.mostrar_error_campo('file_analysis_preparation', 'file_analysis_preparation_max_size_KO');
+				//return false;
+				return 'file_analysis_preparation_max_size_KO';
+			}
+			if (!(this.validaciones.format('file_analysis_preparation', '^[A-Za-z.]*$'))) {
+				this.mostrar_error_campo('file_analysis_preparation', 'file_analysis_preparation_format_KO');
+				//return false;
+				return 'file_analysis_preparation_format_KO';
+			}
+			this.mostrar_exito_campo('file_analysis_preparation');
+			return true;
 		}
-		if (!(this.validaciones.format('file_analysis_preparation', '^[A-Za-z.]*$'))) {
-			this.mostrar_error_campo('file_analysis_preparation', 'file_analysis_preparation_format_KO');
-			//return false;
-			return 'file_analysis_preparation_format_KO';
-		}
-		this.mostrar_exito_campo('file_analysis_preparation');
-		return true;
 	}
 
 

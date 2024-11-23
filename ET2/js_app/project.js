@@ -452,44 +452,40 @@ class project extends EntidadAbstracta {
 	comprobar_nuevo_file_project() {
 
 		if (document.getElementById('nuevo_file_project').files.length == 0) {
-			if (this.accion == 'EDIT') {
-				return true;
+			this.mostrar_error_campo('nuevo_file_project', 'nuevo_file_project_empty_KO');
+			return 'nuevo_file_project_empty_KO';
+
+		}
+		else {
+			// si tuviera un campo con multiples ficheros tendria que hacer un bucle para comprobar cada file[i]
+			let mifichero = document.getElementById('nuevo_file_project').files[0];
+
+
+			if (!(this.validaciones.max_size_file(mifichero, 2000000))) {
+				this.mostrar_error_campo('nuevo_file_project', 'nuevo_file_project_max_size_file_KO');
+				return 'nuevo_file_project_max_size_file_KO';
 			}
-			else {
-				if (this.accion = "ADD") {
-					this.mostrar_error_campo('nuevo_file_project', 'nuevo_file_project_empty_KO');
-					return 'nuevo_file_project_empty_KO';
-				}
+			if (!(this.validaciones.type_file(mifichero, Array("application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document")))) {
+				this.mostrar_error_campo('nuevo_file_project', 'nuevo_file_project_type_file_KO');
+				return 'nuevo_file_project_type_file_KO';
 			}
-		}
+			if (!(this.validaciones.format_name_file(mifichero, '[A-Za-z.]*$'))) {
+				this.mostrar_error_campo('nuevo_file_project', 'nuevo_file_project_format_name_file_KO');
+				return 'nuevo_file_project_format_name_file_KO';
+			}
+			if (!this.validaciones.min_size('nuevo_file_project', 7)) {
+				this.mostrar_error_campo('nuevo_file_project', 'nuevo_file_project_min_size_name_KO');
+				return 'nuevo_file_project_min_size_name_KO';
+			}
+			if (!this.validaciones.max_size('nuevo_file_project', 100)) {
+				this.mostrar_error_campo('nuevo_file_project', 'nuevo_file_project_max_size_name_KO');
+				return 'nuevo_file_project_max_size_name_KO';
+			}
 
-		// si tuviera un campo con multiples ficheros tendria que hacer un bucle para comprobar cada file[i]
-		let mifichero = document.getElementById('nuevo_file_project').files[0];
+			this.mostrar_exito_campo('nuevo_file_project');
+			return true;
 
-
-		if (!(this.validaciones.max_size_file(mifichero, 2000000))) {
-			this.mostrar_error_campo('nuevo_file_project', 'nuevo_file_project_max_size_file_KO');
-			return 'nuevo_file_project_max_size_file_KO';
 		}
-		if (!(this.validaciones.type_file(mifichero, Array("application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document")))) {
-			this.mostrar_error_campo('nuevo_file_project', 'nuevo_file_project_type_file_KO');
-			return 'nuevo_file_project_type_file_KO';
-		}
-		if (!(this.validaciones.format_name_file(mifichero, '[A-Za-z.]*$'))) {
-			this.mostrar_error_campo('nuevo_file_project', 'nuevo_file_project_format_name_file_KO');
-			return 'nuevo_file_project_format_name_file_KO';
-		}
-		if (!this.validaciones.min_size('nuevo_file_project', 7)) {
-			this.mostrar_error_campo('nuevo_file_project', 'nuevo_file_project_min_size_name_KO');
-			return 'nuevo_file_project_min_size_name_KO';
-		}
-		if (!this.validaciones.max_size('nuevo_file_project', 100)) {
-			this.mostrar_error_campo('nuevo_file_project', 'nuevo_file_project_max_size_name_KO');
-			return 'nuevo_file_project_max_size_name_KO';
-		}
-
-		this.mostrar_exito_campo('nuevo_file_project');
-		return true;
 
 	}
 
@@ -652,8 +648,8 @@ class project extends EntidadAbstracta {
 	 */
 	comprobar_start_date_project_SEARCH() {
 
-		if (document.getElementById('start_date_project').value != null) {
-			if (!(this.validaciones.format('start_date_project', '[0-9]{2,}[/][0-9]{2,}[/][0-9]{4,} '))) {
+		if (document.getElementById('start_date_project').value != '') {
+			if (!(this.validaciones.format('start_date_project', '[0-9]{2,}[/][0-9]{2,}[/][0-9]{4,}'))) {
 				this.mostrar_error_campo('start_date_project', 'start_date_project_format_KO');
 				return 'start_date_project_format_KO';
 			}
@@ -682,13 +678,31 @@ class project extends EntidadAbstracta {
 	 */
 	comprobar_end_date_project_SEARCH() {
 
-		if (!(this.validaciones.format('end_date_project', ''))) {
-			this.mostrar_error_campo('end_date_project', 'end_date_project_format_KO');
-			return 'end_date_project_format_KO';
+		if (document.getElementById('end_date_project').value != '') {
+			if (!(this.validaciones.format('end_date_project', '[0-9]{2,}[/][0-9]{2,}[/][0-9]{4,}'))) {
+				this.mostrar_error_campo('end_date_project', 'end_date_project_format_KO');
+				return 'end_date_project_format_KO';
+			}
+			if (!(this.validacionesespeciales('end_date_project', null, 'fechavalida'))) {
+				this.mostrar_error_campo('end_date_project', 'end_date_project_valid_KO');
+				return 'end_date_project_valid_KO';
+			}
+			console.log('hello')
+			if (document.getElementById('start_date_project').value != '') {
+				if (!(this.validacionesespeciales('start_date_project', 'end_date_project', 'fechasuperior'))) {
+					this.mostrar_error_campo('end_date_project', 'end_date_project_correct_KO');
+					return 'end_date_project_correct_KO';
+				}
+			}
+			this.mostrar_exito_campo('end_date_project');
+			return true;
+
+		}
+		else {
+			this.mostrar_exito_campo('end_date_project');
+			return true;
 		}
 
-		this.mostrar_exito_campo('end_date_project');
-		return true;
 	}
 
 	/**
@@ -913,7 +927,7 @@ class project extends EntidadAbstracta {
 
 	/*
 		metodo para validaciones especiales de atributos en los formularios
-
+	
 		Modificado para que pueda realizar las siguientes acciones:
 		-	Verificar si la fecha es válida independientemente de que sea start_date_project o end_date_project
 		-	Verificar si la fecha de end_date_project sea superior o igual a la de start
@@ -927,10 +941,10 @@ class project extends EntidadAbstracta {
 				let fecha = document.getElementById(atributo1).value;
 				let fechaf = fecha.split("/");
 				let day = fechaf[0];
-				let month = fechaf[1];
+				let month = fechaf[1] - 1; // Se resta uno para evitar problemas de desbordamiento
 				let year = fechaf[2];
 				let date = new Date(year, month, '0');
-				if ((day - 0) > (date.getDate() - 0)) {
+				if ((day - 0) > (date.getDate() - 0) || month > 12) {
 					return false;
 				}
 				return true;
@@ -938,15 +952,13 @@ class project extends EntidadAbstracta {
 		}
 		if (atributo1 == 'start_date_project' && atributo2 == 'end_date_project') {
 			if (prueba == 'fechasuperior') {
-				if (document.getElementById(atributo1.value) != null || document.getElementById(atributo2.value) != null) {
+				if (document.getElementById(atributo1.value) != '' || document.getElementById(atributo2.value) != '') {
 					let fecha1 = document.getElementById(atributo1).value;
 					let fecha2 = document.getElementById(atributo2).value;
 					let fechaf1 = fecha1.split("/");
 					let fechaf2 = fecha2.split("/");
 					let dateStart = new Date(fechaf1[2], fechaf1[1] - 1, fechaf1[0]);
-					console.log(dateStart);
 					let dateEnd = new Date(fechaf2[2], fechaf2[1] - 1, fechaf2[0]);
-					console.log(dateEnd);
 					if (dateEnd < dateStart) return false;
 					return true;
 				} else return true;
