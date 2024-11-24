@@ -1,1 +1,1 @@
-datosgenerales = Array('Quintas Rodriguez Tatiana Maria', 'ET2', 64);
+datosgenerales = Array('Quintas Rodriguez Tatiana Maria', 'ET2', 66);
