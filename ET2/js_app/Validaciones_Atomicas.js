@@ -95,7 +95,7 @@ class validacionesatomicas{
 	}
 
 	max_size_file(objfile, maxsize){
-		if (objfile.size>maxsize){
+		if (objfile.size>=maxsize){
 			return false;
 		}
 		return true;

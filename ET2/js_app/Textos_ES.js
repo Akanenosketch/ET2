@@ -4,14 +4,15 @@ let textos_ES = {
 	"text_titulo_app": "Interfaz ET2 IU",
 	"text_titulo_menu": "Opciones de Menú",
 	"text_titulo_pie": "Pie de página",
+	"text_titulo_page_project": "Gestión de Proyectos",
+	"text_titulo_page_analysis_preparation": "Gestión de análisis",
 	"text_project": "Proyecto",
 	"text_analysis_prep": "Analisis",
-	"res_estructura_tests": "Tabla verificacion estructura de test",
-	"resultadodef": "formato correcto estructura definicion tests",
-	"res_estructura_pruebas": "Tabla verificacion estructura de pruebas",
-	"resultadoprueba": "formato correcto estructura pruebas",
-	"res_pruebas": "Tabla ejecución de pruebas",
-	"resultadotest": "Resultado ejecucion pruebas",
+	
+	"DefTest_Title": "Tabla de verificacion de estructura de tests",
+	"DefPrueba_Title": "Tabla de verificacion de estructura de pruebas",
+	"DefPruebaEntidad_Title": "Tabla de ejecución de pruebas",
+
 	"text_contenido_titulo_form_project_ADD": "Formulario para añadir un nuevo proyecto",
 	"text_contenido_titulo_form_project_EDIT": "Formulario para editar un proyecto existente",
 	"text_contenido_titulo_form_project_SEARCH": "Formulario para buscar un proyecto",
@@ -71,12 +72,29 @@ let textos_ES = {
 	"numDef": "Num.Def",
 	"numTest": "Num.Prob",
 	"info": "Información",
+	"accion": "Acción",
+	"valor": "Valor",
+	"respuestaTest":"Respuesta Test",
+	"respuestaEsperada": "Respuesta Esperada",
+	"resultado": "Resultado",
 	"entidadFile": "Entidad archivo",
 	"campoFile": "Campo archivo",
 	"numDefFile": "Num.Def archivo",
 	"numTestFile": "Num.Prob archivo",
 	"infoFile": "Información archivo",
 
+	// Resultado de tests
+	"CORRECTA": "CORRECTO",
+	"INCORRECTO": "INCORRECTO",
+	"ERROR": "ERROR",
+	"DefCorrect": "CORRECTA",
+
+	'DefTest_OK': 'La estructura de todas las definiciones de test son correctas',
+	'DefTest_KO': 'La estructura de todas las definiciones de test no son correctas, alguna está mal',
+	'DefPrueba_OK': 'La estructura de todas las definiciones de pruebas son correctas',
+	'DefPrueba_KO': 'La estructura de todas las definiciones de pruebas no son correctas, alguna está mal',
+	'DefUnitPruebas_OK': 'Todos los resultados de las pruebas son correctos',
+	'DefUnitPruebas_KO': 'Todos los resultados de las pruebas no son correctos, hay alguno mal',
 
 	// errores de las validaciones de formulario
 	// Project
@@ -106,22 +124,22 @@ let textos_ES = {
 	"responsable_project_format_KO": "El responsable de proyecto introducido no cumple con el formato permitido, se admiten caracteres alfabéticos (ñ incluída), espacios y signos de puntuación (todo sin acentos)",
 	
 	// organization_project (ADD/EDIT/SEARCH)
-	"organization_project_min_size_KO": "La organización de proyecto introducido es muy corto, debe de contener como mínimo 6 caracteres",
-	"organization_project_max_size_KO": "La organización de proyecto introducido es muy largo, debe de contener como máximo 100 caracteres",
-	"organization_project_format_KO": "La organización de proyecto introducido no cumple con el formato permitido, se admiten caracteres alfabéticos (ñ incluida), espacios y signos de puntuación (todo sin acentos)",
+	"organization_project_min_size_KO": "La organización de proyecto introducida es muy corta, debe de contener como mínimo 6 caracteres",
+	"organization_project_max_size_KO": "La organización de proyecto introducida es muy larga, debe de contener como máximo 100 caracteres",
+	"organization_project_format_KO": "La organización de proyecto introducida no cumple con el formato permitido, se admiten caracteres alfabéticos (ñ incluida), espacios y signos de puntuación (todo sin acentos)",
 	
 	// description_project (ADD/EDIT/SEARCH)
-	"description_project_min_size_KO": "La descripción de proyecto introducido es muy corto, debe de contener como mínimo 30 carcateres",
-	"description_project_max_size_KO": "La descripción de proyecto introducido es muy largo, debe de contener como máximo 500 caracteres",
-	"description_project_format_KO": "La descripción de proyecto no cumple con el formato permitido, si ves este error no sé que decirte...",
+	"description_project_min_size_KO": "La descripción de proyecto introducida es muy corta, debe de contener como mínimo 30 carcateres",
+	"description_project_max_size_KO": "La descripción de proyecto introducida es muy larga, debe de contener como máximo 500 caracteres",
+	"description_project_format_KO": "La descripción de proyecto introducida no cumple con el formato permitido, si ves este error no sé que decirte...",
 	
 	// file_project (ADD/EDIT)
 	"nuevo_file_project_empty_KO": "Debes de adjuntar un fichero, no puedes dejar esto vacío, alcornoque",
-	"nuevo_file_project_max_size_file_KO": "El archivo adjuntado es muy grande, debe de ser de máximo 20 MB (aprox)",
+	"nuevo_file_project_max_size_file_KO": "El archivo adjuntado es muy grande, debe de ser de máximo 2 MB (aprox)",
 	"nuevo_file_project_type_file_KO": "El formato del archivo adjuntado no es un formato aceptado, debe de ser uno de los siguientes formatos .pdf, .doc, .docx",
 	"nuevo_file_project_format_name_file_KO": "El nombre del fichero adjuntado no cumple con el formato permitido, solo se admiten caracteres alfabéticos y un punto para el formato, no se admiten acentos, espacios, la ñ y los signos de puntuación",
-	"nuevo_file_project_min_size_name_KO": "El nombre del archivo adjuntado es muy corto, debe de contener como mínmo 7 caracteres",
-	"nuevo_file_project_max_size_name_KO": "El nombre del archivo adjuntado es muy largo, debe de contener como máximo 100 caracteres",
+	"nuevo_file_project_min_size_KO": "El nombre del archivo adjuntado es muy corto, debe de contener como mínmo 7 caracteres",
+	"nuevo_file_project_max_size_KO": "El nombre del archivo adjuntado es muy largo, debe de contener como máximo 100 caracteres",
 	
 	// file_project (SEARCH)
 	"file_project_format_KO": "El nombre del fichero adjuntado no cumple con el formato permitido, solo se admiten caracteres alfabéticos y un punto para el formato, no se admiten acentos, espacios, la ñ y los signos de puntuación",
@@ -159,9 +177,9 @@ let textos_ES = {
 	"bib_analysis_preparation_format_KO": "El BIB de análisis introducido no cumple con el formato permitido, se admiten caracteres alfabéticos (ñ y acentos incluídos), espacios y signos de puntuación",
 	
 	// description_analysis_preparation (ADD/EDIT/SEARCH)
-	"description_analysis_preparation_min_size_KO": "La descripción de análisis introducido es muy corto, debe de contener como mínimo 80 caracteres",
-	"description_analysis_preparation_max_size_KO": "La descripción de análisis introducido es muy largo, debe de contener como máximo 5000 caracteres",
-	"description_analysis_preparation_format_KO": "La descripción de análisis introducido no cumple con el formato permitido, se admiten caracteres alfabéticos, espacios y signos de puntuación (todo sin acentos y sin ñ)",
+	"description_analysis_preparation_min_size_KO": "La descripción de análisis introducida es muy corta, debe de contener como mínimo 80 caracteres",
+	"description_analysis_preparation_max_size_KO": "La descripción de análisis introducida es muy larga, debe de contener como máximo 5000 caracteres",
+	"description_analysis_preparation_format_KO": "La descripción de análisis introducida no cumple con el formato permitido, se admiten caracteres alfabéticos, espacios y signos de puntuación (todo sin acentos y sin ñ)",
 	
 	// file_analysis_preparation (ADD/EDIT)
 	"nuevo_file_analysis_preparation_empty_KO": "Debes de adjuntar un fichero, no puedes dejar esto vacío, alcornoque",

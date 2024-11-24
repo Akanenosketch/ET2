@@ -4,14 +4,15 @@ let textos_EN = {
 	"text_titulo_app": "IU ET2 Interface",
 	"text_titulo_menu": "Menu Options",
 	"text_titulo_pie": "Page Footer",
+	"text_titulo_page_project": "Project Management Page",
+	"text_titulo_page_analysis_preparation": "Analysis Management Page",
 	"text_project": "Project",
 	"text_analysis_prep": "Analysis Preparation",
-	"res_estructura_tests": "Verification table for structure testing of the test definitions",
-	"resultadodef": "Test definitions are formatted properly",
-	"res_estructura_pruebas": "Verification table for structure testing of the test' tests",
-	"resultadoprueba": "Test' tests are formatted properly",
-	"res_pruebas": "Table for test execution",
-	"resultadotest": "Test execution results",
+
+	"DefTest_Title": "Verification table for structure testing of the test definitions",
+	"DefPrueba_Title": "Verification table for structure testing of the test' tests",
+	"DefPruebaEntidad_Title": "Table for test execution",
+
 	"text_contenido_titulo_form_project_ADD": "Project Add Form",
 	"text_contenido_titulo_form_project_EDIT": "Project Edit Form",
 	"text_contenido_titulo_form_project_SEARCH": "Project Preparation Search Form",
@@ -67,15 +68,33 @@ let textos_EN = {
 	// Columnas de las tablas de definiciones y pruebas
 	"entidad": "Entity",
 	"campo": "Field",
-	"prueba":"Test/Evaluation",
+	"prueba": "Test/Evaluation",
 	"numDef": "Def.Number",
 	"numTest": "Test Number",
 	"info": "Information",
+	"accion": "Action",
+	"valor": "Value",
+	"respuestaTest": "Test Response",
+	"respuestaEsperada": "Expected Response",
+	"resultado": "Result",
 	"entidadFile": "File's Entity",
 	"campoFile": "File's Field",
 	"numDefFile": "File's Def.Number",
 	"numTestFile": "File's Test Number",
 	"infoFile": "File's Information",
+
+	// Resultado de tests
+	"CORRECTO": "CORRECT",
+	"INCORRECTO": "INCORRECT",
+	"ERROR": "ERROR",
+	"DefCorrect": "CORRECT",
+
+	'DefTest_OK': 'The structure of all Test definitions is correct',
+	'DefTest_KO': 'The structure of all Test definitions is not correct, some are wrong',
+	'DefPrueba_OK': 'The definition of all Test Cases is correct',
+	'DefPrueba_KO': 'The definition of all Test Cases is not correct, some are wrong',
+	'DefUnitPruebas_OK': 'All Unit Test results are correct',
+	'DefUnitPruebas_KO': 'All Unit Test results are not correct, some are wrong',
 
 	// errores de las validaciones de formulario
 	// Project
@@ -84,58 +103,58 @@ let textos_EN = {
 	"id_project_min_size_KO": "The Project ID introduced is too short, it must be 1 digit at minimum", //Este error posiblemente nunca salga, se ha introducido por si acaso
 	"id_project_max_size_KO": "The Project ID introduced is too long , it must be 11 digits at maximum",
 	"id_project_format_KO": "The Project ID introduced doesn't comply with the accepted format, only digits are allowed",
-	
+
 	// name_project (ADD/EDIT/SEARCH)
 	"name_project_min_size_KO": "The Project name introduced is too short, it must be 15 characters at minimum",
 	"name_project_max_size_KO": "The Project name introduced is too long, it must be 100 characters at maximum",
 	"name_project_format_KO": "The Project name introduced doesn't comply with the accepted format, only alphabetic characters and spaces are allowed. Accents and the letter ñ are forbidden",
-	
+
 	// start_date_project (ADD/EDIT/SEARCH)
 	"start_date_project_format_KO": "The Project's start date introduced doesnt comply with the accepted format, {dd/mm/yyyy} is the only format allowed",
 	"start_date_project_valid_KO": "The Project's start date introduced is not a valid date, please check a calendar before adding a date",
-	
+
 	// end_date_project (ADD/EDIT/SEARCH)
 	"end_date_project_format_KO": "The Project's end date introduced doesnt comply with the accepted format, {dd/mm/yyyy} is the only format allowed",
 	"end_date_project_valid_KO": "The Project's end date introduced is not a valid date, please check a calendar before adding a date",
 	"end_date_project_correct_KO": "The Project's end date introduced is lower than the Start Date, please take into account that negative time does not exist",
-	
+
 	// responsable_project (ADD/EDIT/SEARCH)
 	"responsable_project_min_size_KO": "The Project team leader introduced is too short, it must be 6 characters at minimum",
 	"responsable_project_max_size_KO": "The Project team leader introduced is too long, it must be 60 characaters at maximum",
 	"responsable_project_format_KO": "The Project team leader introduced doesn't comply with the accepted format, only alphabetic characters (including the letter ñ), spaces and punctuation signs are allowed. Accents are forbidden",
-	
+
 	// organization_project (ADD/EDIT/SEARCH)
 	"organization_project_min_size_KO": "The Project organization introduced is too short, it must be 6 characters at minimum",
 	"organization_project_max_size_KO": "The Project oranization introduced is too long, it must be 100 characters at maximum",
 	"organization_project_format_KO": "The Project organization introduced doesn't comply with the accepted format, only alphabetic characters (incuding the letter ñ), spaces and punctuation signs are allowed. Accents are forbidden",
-	
+
 	// description_project (ADD/EDIT/SEARCH)
 	"description_project_min_size_KO": "The Project description introduced is too short, it must be 30 character at minimum",
 	"description_project_max_size_KO": "The Project description introduced is too long, it must be 500 characters at maximum",
 	"description_project_format_KO": "The Project description introduced doesn't comply with the accepted format, if you got this error I don't know what to tell you...",
-	
+
 	// file_project (ADD/EDIT)
 	"nuevo_file_project_empty_KO": "You must attatch a file here, you can't leave this empty",
 	"nuevo_file_project_max_size_file_KO": "The file attatched is too heave, it must be approximately 20MB at maximum",
 	"nuevo_file_project_type_file_KO": "The format of the file attatched is not an accepted format, it must be one of the following formats: .pdf, .doc, .docx",
 	"nuevo_file_project_format_name_file_KO": "The name of the file attatched doesn't comply with the accepted format, only alphabetic characters and dots are allowed. Spaces, accents, the letter ñ and punctuation signs are not allowed",
-	"nuevo_file_project_min_size_name_KO": "The name of the file attatched is too short, it must be 7 characters at minimum",
-	"nuevo_file_project_max_size_name_KO": "The name of the file attatched is too long, it must be 100 characters at maximum",
-	
+	"nuevo_file_project_min_size_KO": "The name of the file attatched is too short, it must be 7 characters at minimum",
+	"nuevo_file_project_max_size_KO": "The name of the file attatched is too long, it must be 100 characters at maximum",
+
 	// file_project (SEARCH)
 	"file_project_format_KO": "The filename introduced doesn't comply with the accepted format, only alphabetic characters and dots are allowed. Spaces, accents, the letter ñ and punctuation signs are not allowed",
-	"file_project_max_size_KO": "The filename introduced is too long, it must be 100 characters at maximum",	
+	"file_project_max_size_KO": "The filename introduced is too long, it must be 100 characters at maximum",
 
 	// code_project (ADD/EDIT/SEARCH)
 	"code_project_min_size_KO": "The Project code introduced is too short, it must be 6 characters at minimum",
 	"code_project_max_size_KO": "The Project code introduced is too long, it must be 50 characters at maximum",
 	"code_project_format_KO": "The Project code introduced doesn't comply with the accepted format, only alphabetic characters (including the letter ñ), spaces and punctuation signs are allowed. Accents are not allowed",
-	
+
 	// acronym_project (ADD/EDIT/SEARCH)
 	"acronym_project_min_size_KO": "The Project acronym introduced is too short, it must be 6 characetrs at minimum",
 	"acronym_project_max_size_KO": "The Project acronym introduced is too long, it must be 15 characters at maximum",
 	"acronym_project_format_KO": "The Project acronym introduced doesn't comply with the accepted format, only alphabetic characters (including the letter ñ) and punctuation signs. Spaces and accents are not allowed",
-	
+
 	// id_sampling_methodology (ADD/EDIT/SEARCH)
 	"id_sampling_methodology_min_size_KO": "The Sampling methodology ID is too short, it must be 1 digit at minimum (Sampling is not something you can do with magic)",
 	"id_sampling_methodology_max_size_KO": "The Sampling methodology ID is too long, it must be 11 digits at maximum",
@@ -146,30 +165,30 @@ let textos_EN = {
 	"id_analysis_preparation_min_size_KO": "The Analysis ID introduced is too short, it must be 1 digit at minimum", //Este error posiblemente nunca salga, se ha introducido por si acaso
 	"id_analysis_preparation_max_size_KO": "The Analysis ID introduced is too long, it must be 11 digits at maximum",
 	"id_analysis_preparation_format_KO": "The Analysis ID introduced doesn't comply with the accpeted format, only digits are allowed",
-	
+
 	// name_analysis_preparation (ADD/EDIT/SEARCH)
 	"name_analysis_preparation_min_size_KO": "The Analysis name is too short, it must be 8 characters at minimum",
 	"name_analysis_preparation_max_size_KO": "The Analysis name is too long, it must be 100 characters maximum",
 	"name_analysis_preparation_format_KO": "The Analysis name introduced doesn't comply with the accepted format, only alphabetic characters and spaces are allowed. Accents and the letter ñ are not allowed",
-	
+
 	// bib_analysis_preparation (ADD/EDIT/SEARCH)
 	"bib_analysis_preparation_min_size_KO": "The Analysis BIB is too short, it must be 6 characters minimum",
 	"bib_analysis_preparation_max_size_KO": "The Analysis BIB introduced is too long, it must be 200 characters at maximum",
 	"bib_analysis_preparation_format_KO": "The Analysis BIB introduced doesn't comply with the accepted format, only alphabetical characters (the letter ñ included), accents, spaces and punctuation signs are allowed",
-	
+
 	// description_analysis_preparation (ADD/EDIT/SEARCH)
 	"description_analysis_preparation_min_size_KO": "The Analysis description introduced is too short, it must be 80 characters at minimum",
 	"description_analysis_preparation_max_size_KO": "The Analysis description introduced is too long, , it must be 5000 characters at maximum",
 	"description_analysis_preparation_format_KO": "The Analysis description introduced doesn't comply with the accepted format, only alphabetic characters, spaces and punctuation signa are allowed. Accents and the letter ñ are not allowed",
-	
+
 	// file_analysis_preparation (ADD/EDIT)
 	"nuevo_file_analysis_preparation_empty_KO": "You must attatch a file here, you can't leave this empty",
-	"nuevo_file_analysis_preparation_max_size_file_KO": "The file attatched is too heave, it must be approximately 20MB at maximum",
+	"nuevo_file_analysis_preparation_max_size_file_KO": "The file attatched is too heave, it must be approximately 2 MB at maximum",
 	"nuevo_file_analysis_preparation_type_file_KO": "The format of the file attatched is not an accepted format, it must be one of the following formats: .pdf, .doc, .docx",
 	"nuevo_file_analysis_preparation_format_name_file_KO": "The name of the file attatched doesn't comply with the accepted format, only alphabetic characters and dots are allowed. Spaces, accents, the letter ñ and punctuation signs are not allowed",
 	"nuevo_file_analysis_preparation_min_size_name_KO": "The name of the file attatched is too short, it must be 7 characters at minimum",
 	"nuevo_file_analysis_preparation_max_size_name_KO": "The name of the file attatched is too long, it must be 100 characters at maximum",
-	
+
 	// file_analysis_preparation (SEARCH)
 	"nuevo_file_analysis_preparation_format_KO": "The filename introduced doesn't comply with the accepted format, only alphabetic characters and dots are allowed. Spaces, accents, the letter ñ and punctuation signs are not allowed",
 	"nuevo_file_analysis_preparation_max_size_KO": "The filename introduced is too long, it must be 100 characters at maximum",

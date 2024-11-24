@@ -245,7 +245,7 @@ class analysis_preparation extends EntidadAbstracta {
 
 		if (!(this.validaciones.min_size('name_analysis_preparation', 8))) {
 			this.mostrar_error_campo('name_analysis_preparation', 'name_analysis_preparation_min_size_KO');
-			return 'name_analysis_prepration_min_size_KO';
+			return 'name_analysis_preparation_min_size_KO';
 		}
 		if (!(this.validaciones.max_size('name_analysis_preparation', 100))) {
 			this.mostrar_error_campo('name_analysis_preparation', 'name_analysis_preparation_max_size_KO');
@@ -306,7 +306,7 @@ class analysis_preparation extends EntidadAbstracta {
 			//return false;
 			return 'bib_analysis_preparation_max_size_KO';
 		}
-		if (!(this.validaciones.format('bib_analysis_preparation', `^[A-Za-z áéíóúñÁÉÍÓÚÑ¿¡ !"#$%&'()*+,./:;<=>?@\[\\\]^_\`{|}~-]*$`))) {
+		if (!(this.validaciones.format('bib_analysis_preparation', `^[A-Za-z ñÑ !"'(),-.:;?^_\`{\|}~¿»¡«áéíóúÁÉÍÓÚ]*$`))) {
 			this.mostrar_error_campo('bib_analysis_preparation', 'bib_analysis_preparation_format_KO');
 			//return false;
 			return 'bib_analysis_preparation_format_KO';
@@ -350,17 +350,17 @@ class analysis_preparation extends EntidadAbstracta {
 			this.mostrar_error_campo('nuevo_file_analysis_preparation', 'nuevo_file_analysis_preparation_type_file_KO');
 			return 'nuevo_file_analysis_preparation_type_file_KO';
 		}
-		if (!(this.validaciones.format_name_file(mifichero, '[A-Za-z.]*$'))) {
+		if (!(this.validaciones.format_name_file(mifichero, '^[A-Za-z.]*$'))) {
 			this.mostrar_error_campo('nuevo_file_analysis_preparation', 'nuevo_file_analysis_preparation_format_name_file_KO');
 			return 'nuevo_file_analysis_preparation_format_name_file_KO';
 		}
 		if (!this.validaciones.min_size('nuevo_file_analysis_preparation', 7)) {
-			this.mostrar_error_campo('nuevo_file_analysis_preparation', 'nuevo_file_analysis_preparation_min_size_name_KO');
-			return 'nuevo_file_analysis_preparation_min_size_name_KO';
+			this.mostrar_error_campo('nuevo_file_analysis_preparation', 'nuevo_file_analysis_preparation_min_size_KO');
+			return 'nuevo_file_analysis_preparation_min_size_KO';
 		}
 		if (!this.validaciones.max_size('nuevo_file_analysis_preparation', 100)) {
-			this.mostrar_error_campo('nuevo_file_analysis_preparation', 'nuevo_file_analysis_preparation_max_size_name_KO');
-			return 'nuevo_file_analysis_preparation_max_size_name_KO';
+			this.mostrar_error_campo('nuevo_file_analysis_preparation', 'nuevo_file_analysis_preparation_max_size_KO');
+			return 'nuevo_file_analysis_preparation_max_size_KO';
 		}
 
 		this.mostrar_exito_campo('nuevo_file_analysis_preparation');
@@ -433,9 +433,10 @@ class analysis_preparation extends EntidadAbstracta {
 				//return false;
 				return 'name_analysis_preparation_format_KO'
 			}
-			this.mostrar_exito_campo('name_analysis_preparation');
-			return true;
+
 		}
+		this.mostrar_exito_campo('name_analysis_preparation');
+		return true;
 	}
 
 	/**
@@ -458,9 +459,9 @@ class analysis_preparation extends EntidadAbstracta {
 				//return false;
 				return 'description_analysis_preparation_format_KO'
 			}
-			this.mostrar_exito_campo('description_analysis_preparation');
-			return true;
 		}
+		this.mostrar_exito_campo('description_analysis_preparation');
+		return true;
 	}
 
 	/**
@@ -477,14 +478,14 @@ class analysis_preparation extends EntidadAbstracta {
 				//return false;
 				return 'bib_analysis_preparation_max_size_KO'
 			}
-			if (!(this.validaciones.format('bib_analysis_preparation', `^[A-Za-z áéíóúñÁÉÍÓÚÑ¿¡ !"#$%&'()*+,./:;<=>?@\[\\\]^_\`{|}~-]*$`))) {
+			if (!(this.validaciones.format('bib_analysis_preparation', `^[A-Za-z ñÑ !"'(),-.:;?^_\`{\|}~¿»¡«  áéíóúÁÉÍÓÚ]*$`))) {
 				this.mostrar_error_campo('bib_analysis_preparation', 'bib_analysis_preparation_format_KO');
 				//return false;
 				return 'bib_analysis_preparation_format_KO'
 			}
-			this.mostrar_exito_campo('bib_analysis_preparation');
-			return true;
 		}
+		this.mostrar_exito_campo('bib_analysis_preparation');
+		return true;
 	}
 
 	/**
@@ -499,7 +500,7 @@ class analysis_preparation extends EntidadAbstracta {
 	comprobar_file_analysis_preparation_SEARCH() {
 
 		if (!(document.getElementById('file_analysis_preparation').value == '')) {
-			if (!(this.validaciones.max_size('file_analysis_preparation', 20))) {
+			if (!(this.validaciones.max_size('file_analysis_preparation', 100))) {
 				this.mostrar_error_campo('file_analysis_preparation', 'file_analysis_preparation_max_size_KO');
 				//return false;
 				return 'file_analysis_preparation_max_size_KO';
@@ -509,9 +510,9 @@ class analysis_preparation extends EntidadAbstracta {
 				//return false;
 				return 'file_analysis_preparation_format_KO';
 			}
-			this.mostrar_exito_campo('file_analysis_preparation');
-			return true;
 		}
+		this.mostrar_exito_campo('file_analysis_preparation');
+		return true;
 	}
 
 
