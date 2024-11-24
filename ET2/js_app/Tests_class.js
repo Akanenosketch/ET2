@@ -197,7 +197,7 @@ class test {
                 var resultadoestetest = '<td class="INCORRECTO">INCORRECTO</td>';
             }
 
-            var lineasalida = `<tr><td>` + numdeftest + `</td><td>` + numprueba + `</td><td>` + campotest + `</td><td>` + clasedetest + `</td><td>` + acciontest + `</td><td>` + valortest + `</td>` + resultadotest + `</td><td>` + respuestatest + '(' + this.traduccion(respuestatest) + ')' + `</td><td>` + resultadoestetest + `</tr>`;
+            var lineasalida = `<tr><td>` + numdeftest + `</td><td>` + numprueba + `</td><td>` + campotest + `</td><td>` + clasedetest + `</td><td>` + acciontest + `</td><td>` + valortest + `</td><td>` + resultadotest + `</td><td>` + respuestatest + '(' + this.traduccion(respuestatest) + ')' + `</td>` + resultadoestetest + `</tr>`;
             salidatest += lineasalida;
 
 

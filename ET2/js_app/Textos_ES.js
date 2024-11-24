@@ -119,7 +119,7 @@ let textos_ES = {
 	"end_date_project_correct_KO": "La fecha de finalización introducida no es superior a la de inicio, por favor entiende que no existe el tiempo negativo",
 	
 	// responsable_project (ADD/EDIT/SEARCH)
-	"responsable_project_min_size_KO": "El responsable de proyecto introducido es muy corto debe de contener como mínimo 6 caracteres",
+	"responsable_project_min_size_KO": "El responsable de proyecto introducido es muy corto, debe de contener como mínimo 6 caracteres",
 	"responsable_project_max_size_KO": "El responsable de proyecto introducido es muy largo, debe de contener como máximo 60 caracteres",
 	"responsable_project_format_KO": "El responsable de proyecto introducido no cumple con el formato permitido, se admiten caracteres alfabéticos (ñ incluída), espacios y signos de puntuación (todo sin acentos)",
 	
@@ -134,7 +134,7 @@ let textos_ES = {
 	"description_project_format_KO": "La descripción de proyecto introducida no cumple con el formato permitido, si ves este error no sé que decirte...",
 	
 	// file_project (ADD/EDIT)
-	"nuevo_file_project_empty_KO": "Debes de adjuntar un fichero, no puedes dejar esto vacío, alcornoque",
+	"nuevo_file_project_empty_KO": "Debes de adjuntar un fichero, no puedes dejar esto vacío",
 	"nuevo_file_project_max_size_file_KO": "El archivo adjuntado es muy grande, debe de ser de máximo 2 MB (aprox)",
 	"nuevo_file_project_type_file_KO": "El formato del archivo adjuntado no es un formato aceptado, debe de ser uno de los siguientes formatos .pdf, .doc, .docx",
 	"nuevo_file_project_format_name_file_KO": "El nombre del fichero adjuntado no cumple con el formato permitido, solo se admiten caracteres alfabéticos y un punto para el formato, no se admiten acentos, espacios, la ñ y los signos de puntuación",
@@ -156,7 +156,7 @@ let textos_ES = {
 	"acronym_project_format_KO": "El acrónimo de proyecto introducido no cumple con el formato permitido, se admiten caracteres alfabéticos (ñ incluída) y signos de puntuación (sin aceptos y sin espacios)",
 	
 	// id_sampling_methodology (ADD/EDIT/SEARCH)
-	"id_sampling_methodology_min_size_KO": "El ID de metodología de muestreo introducido es muy corto, debe de contener como mínimo 1 dígito (no puedes establecerlo a nulo, el muestreo no se hace con magia)",
+	"id_sampling_methodology_min_size_KO": "El ID de metodología de muestreo introducido es muy corto, debe de contener como mínimo 1 dígito",
 	"id_sampling_methodology_max_size_KO": "El ID de metodología de muestreo introducido es muy largo, debe de contener máximo 11 dígitos",
 	"id_sampling_methodology_format_KO": "El ID de metodología de muestro introducido no cumple con el formato permitido, solo se admiten dígitos",
 
@@ -182,7 +182,7 @@ let textos_ES = {
 	"description_analysis_preparation_format_KO": "La descripción de análisis introducida no cumple con el formato permitido, se admiten caracteres alfabéticos, espacios y signos de puntuación (todo sin acentos y sin ñ)",
 	
 	// file_analysis_preparation (ADD/EDIT)
-	"nuevo_file_analysis_preparation_empty_KO": "Debes de adjuntar un fichero, no puedes dejar esto vacío, alcornoque",
+	"nuevo_file_analysis_preparation_empty_KO": "Debes de adjuntar un fichero, no puedes dejar esto vacío",
 	"nuevo_file_analysis_preparation_max_size_file_KO": "El archivo adjuntado es muy grande, debe de ser de máximo 20 MB (aprox)",
 	"nuevo_file_analysis_preparation_type_file_KO": "El formato del archivo adjuntado no es un formato aceptado, debe de ser uno de los siguientes formatos .pdf, .doc, .docx",
 	"nuevo_file_analysis_preparation_format_name_file_KO": "El nombre del fichero adjuntado no cumple con el formato permitido, solo se admiten caracteres alfabéticos y un punto para el formato, no se admiten acentos, espacios, la ñ y los signos de puntuación",
